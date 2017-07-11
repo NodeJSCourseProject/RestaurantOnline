@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "restaurant-online",
   "version": "1.0.0",
   "description": "",
@@ -22,4 +23,16 @@
     "url": "https://github.com/NodeJSCourseProject/RestaurantOnline/issues"
   },
   "homepage": "https://github.com/NodeJSCourseProject/RestaurantOnline#readme"
+=======
+  "name": "RestaurantOnline",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/NodeJSCourseProject/RestaurantOnline.git",
+  "author": "Aimanan <petar.t.bochukov@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3"
+  }
+>>>>>>> 0d620aec0ad819671a0f59490bf6320146ed29d6
 }
