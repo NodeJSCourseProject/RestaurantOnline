@@ -1,12 +1,28 @@
 {
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NodeJSCourseProject/RestaurantOnline.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NodeJSCourseProject/RestaurantOnline/issues"
+  },
+  "homepage": "https://github.com/NodeJSCourseProject/RestaurantOnline#readme",
+
   "name": "RestaurantOnline",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/NodeJSCourseProject/RestaurantOnline.git",
+  "description": "",
   "author": "Aimanan <petar.t.bochukov@gmail.com>",
-  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "eslint": "^4.2.0",
+    "mongodb": "^2.2.30",
+    "node-gitignore": "^1.0.7",
     "express": "^4.15.3"
   }
 }
