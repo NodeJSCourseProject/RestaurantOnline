@@ -1,0 +1,25 @@
+{
+  "name": "restaurant-online",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "eslint": "^4.2.0",
+    "mongodb": "^2.2.30",
+    "node-gitignore": "^1.0.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NodeJSCourseProject/RestaurantOnline.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NodeJSCourseProject/RestaurantOnline/issues"
+  },
+  "homepage": "https://github.com/NodeJSCourseProject/RestaurantOnline#readme"
+}
