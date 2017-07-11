@@ -7,7 +7,8 @@ const meals=[{
 ];
 const attach=(app)=>{
     const router= new Router();
-    router.get('/api/meals', (req, res)=>{
+    router
+        .get('/api/meals', (req, res)=>{
         res.send(meals);
     })
         .post('/api/meals', (req, res)=>{
