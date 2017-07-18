@@ -1,7 +1,10 @@
 const attach=(app)=>{
+    app.get("/", (req, res) => {
+        res.render("landing");
+    });
+
     app.get("/home", (req, res) => {
-        console.log("Home");
-        res.redirect("/404");
+        res.render("landing");
     });
 
     app.get("/menu", (req, res) => {

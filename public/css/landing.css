@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'dreamer';
+    src: url('../fonts/dreamer.otf');
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+nav ul li {
+    float: left;
+}
+
+.auth {
+    position: static;
+    float: right;
+}
+
+nav li a {
+    display: block;
+    color: #C09A68;
+    text-align: center;
+    padding: 12px 16px;
+    text-decoration: none;
+    font-family: Times, serif;    
+    font-weight: bold;
+    border-bottom: 5px solid #333;
+    border-top: 5px solid #333;
+}
+
+nav li a:hover {
+    background-color: #111;
+    border-bottom: 5px solid #C09A68;
+    border-top: 5px solid #111;  
+}
+
+nav li a:active {
+    background-color: #111;
+    border-bottom: 5px solid #111;
+}
+
+main {
+    background-color: #111;
+    background-image: url('http://picbg.net/u/21482/62342/862822.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 430px;
+    opacity: 0.8;
+}
+
+.naming {
+    display: inline;
+    font-family: 'Fredericka the Great', cursive;
+    color: #C09A68;
+    font-size: 100px;
+    position: absolute;
+    top: 20%;
+    left: 35%;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid #C09A68;
+}
+
+.naming p {
+    margin: 30px 30px;
+}
+
+footer {
+    margin: 0px;
+    padding: 10px;
+    color: #C09A68;
+    background-color: #333;
+    text-align: center;
+}
