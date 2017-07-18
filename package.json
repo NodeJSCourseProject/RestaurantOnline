@@ -1,5 +1,7 @@
 {
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^4.2.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,7 +14,6 @@
     "url": "https://github.com/NodeJSCourseProject/RestaurantOnline/issues"
   },
   "homepage": "https://github.com/NodeJSCourseProject/RestaurantOnline#readme",
-
   "name": "RestaurantOnline",
   "version": "1.0.0",
   "main": "index.js",
@@ -21,8 +22,9 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "eslint": "^4.2.0",
+    "express": "^4.15.3",
     "mongodb": "^2.2.30",
     "node-gitignore": "^1.0.7",
-    "express": "^4.15.3"
+    "pug": "^2.0.0-rc.2"
   }
 }
