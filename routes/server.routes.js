@@ -5,8 +5,9 @@ const attach=(app)=>{
     });
 
     app.get("/menu", (req, res) => {
-        console.log("Menu ");
+        console.log("Menu loaded");
         res.render('all'); // relative route, no need for ./all
+       // res.render('./page.not.found')
 
     });
 };

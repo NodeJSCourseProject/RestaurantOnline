@@ -1,0 +1,41 @@
+#wrapper {
+	margin-top: -20px;
+    background: url("http://wall.wallrage.com/wp-content/uploads/Black-Texture-Wallpaper-High-Definition-728x450.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+ul.dropdown-lr {
+	width: 300px;
+}
+
+h1 {
+	color: white;
+}
+
+h1 small {
+	color: white;
+}
+
+.panel-body {
+	background-color:darkgray;
+}
+
+.panel-body .form-control {
+	background-color: lightgray;
+	color: black;
+}
+
+
+/* mobile fix */
+
+@media (max-width: 768px) {
+	.dropdown-lr h3 {
+		color: #eee;
+	}
+	.dropdown-lr label {
+		color: #eee;
+	}
+}
