@@ -9,6 +9,9 @@ nav ul {
     padding: 0;
     overflow: hidden;
     background-color: #333;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
 }
 
 nav ul li {
@@ -49,7 +52,7 @@ main {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    height: 430px;
+    height: 500px;
     opacity: 0.8;
 }
 
