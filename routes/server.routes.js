@@ -28,5 +28,15 @@ const attach=(app)=>{
         console.log("restaurants");
         res.render('restaurants'); 
     });
+
+    app.get("/register", (req, res) => {
+        console.log("reg");
+        res.render('../views/main/register.pug'); 
+    });
+
+    app.get("/login", (req, res) => {
+        console.log("login");
+        res.render('../views/main/login.pug'); 
+    });
 };
 module.exports=attach;
