@@ -46,7 +46,7 @@ nav li a:active {
     border-bottom: 5px solid #111;
 }
 
-main {
+header {
     background-color: #111;
     background-image: url('http://picbg.net/u/21482/62342/862822.png');
     background-size: cover;
