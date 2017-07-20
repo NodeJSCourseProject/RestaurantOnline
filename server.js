@@ -1,11 +1,15 @@
-require('./db').init()
+const async=()=>{
+    return Promise.resolve(); 
+};
+
+const config=require('./config');
+
+async()
+    .then(()=>require('./db').init(config.connectionString))
     .then((db)=>require('./data').init(db))
     .then((data)=>require('./app').init(data))
     .then((app)=>{
-        const app = express();
-        require('./routes/server.routes')(app);
-        require('./routes/api.routes').attach(app);
-        app.listen(3000, console.log("Server works!"));
+        app.listen(config.port, console.log(`Server works at: ${config.port}!`));
     });
 
 

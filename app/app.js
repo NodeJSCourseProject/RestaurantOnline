@@ -9,7 +9,7 @@ const init=(data) => {
         extended: true
     }));
 
-    app.get('./', (req, res)=>{
+    app.get('/', (req, res)=>{
         return res.send('home')
     });
 
@@ -64,12 +64,6 @@ const init=(data) => {
     });
     return Promise.resolve(app);
 };
-
-
-
-
-
-
 
 // require('./routes/server.routes')(app);
 // require('./routes/api.routes').attach(app);
