@@ -1,0 +1,170 @@
+module.exports = {
+    loadOrCreateMeal(Meal, name) {
+        return new Promise((resolve, reject) => {
+            Meal.findOne({ name }, (err, dbMeal) => {
+                let meal = dbMeal;
+
+                if (err) {
+                    return reject(err);
+                }
+
+                if (meal) {
+                    return resolve(meal);
+                }
+
+                meal = new Meal({ name });
+                return this.save(meal)
+                    .then(resolve)
+                    .catch(reject);
+            });
+        });
+    },
+    // loadOrCreateCountry(Country, name, meal) {
+    //     return new Promise((resolve, reject) => {
+    //         Country.findOne({ name }, (err, dbCountry) => {
+    //             let country = dbCountry;
+
+    //             if (err) {
+    //                 return reject(err);
+    //             }
+
+    //             if (country) {
+    //                 return resolve(country);
+    //             }
+
+    //             country = new Country({
+    //                 name,
+    //                 meal: {
+    //                     _id: meal._id,
+    //                     name: meal.name
+    //                 }
+    //             });
+    //             return this.save(country)
+    //                 .then(resolve)
+    //                 .catch(reject);
+    //         });
+    //     });
+    // },
+    // loadOrCreateCity(City, name, country, meal) {
+    //     return new Promise((resolve, reject) => {
+    //         City.findOne({ name }, (err, dbCity) => {
+    //             let city = dbCity;
+
+    //             if (err) {
+    //                 return reject(err);
+    //             }
+
+    //             if (city) {
+    //                 return resolve(city);
+    //             }
+
+    //             city = new City({
+    //                 name,
+    //                 country: {
+    //                     _id: country._id,
+    //                     name: country.name
+    //                 },
+    //                 meal: {
+    //                     _id: meal._id,
+    //                     name: meal.name
+    //                 }
+    //             });
+    //             return this.save(city)
+    //                 .then(resolve)
+    //                 .catch(reject);
+    //         });
+    //     });
+    // },
+    // loadOrCreatePower(Power, name) {
+    //     return new Promise((resolve, reject) => {
+    //         Power.findOne({ name }, (err, dbPower) => {
+    //             let power = dbPower;
+
+    //             if (err) {
+    //                 return reject(err);
+    //             }
+
+    //             if (power) {
+    //                 return resolve(power);
+    //             }
+
+    //             power = new Power({ name });
+    //             return this.save(power)
+    //                 .then(resolve)
+    //                 .catch(reject);
+    //         });
+    //     });
+    // },
+    // loadOrCreateFraction(Fraction, name, meal, alignment) {
+    //     return new Promise((resolve, reject) => {
+    //         Fraction.findOne({ name }, (err, dbFraction) => {
+    //             let fraction = dbFraction;
+
+    //             if (err) {
+    //                 return reject(err);
+    //             }
+
+    //             if (fraction) {
+    //                 return resolve(fraction);
+    //             }
+
+    //             fraction = new Fraction({
+    //                 name,
+    //                 meal: {
+    //                     _id: meal._id,
+    //                     name: meal.name
+    //                 },
+    //                 alignment
+    //             });
+    //             return this.save(fraction)
+    //                 .then(resolve)
+    //                 .catch(reject);
+    //         });
+    //     });
+    // },
+    update(model) {
+        return new Promise((resolve, reject) => {
+            model.save(err => {
+                if (err) {
+                    return reject(err);
+                }
+                return resolve(model);
+            });
+        });
+    },
+    getAll(Schema) {
+        return this.getByQuery(Schema, {});
+    },
+    getById(Schema, id) {
+        return new Promise((resolve, reject) => {
+            Schema.findOne({ _id: id }, (err, obj) => {
+                if (err) {
+                    return reject(err);
+                }
+                return resolve(obj);
+            });
+        });
+    },
+    getByQuery(Schema, query) {
+        return new Promise((resolve, reject) => {
+            Schema.find(query, (err, objects) => {
+                if (err) {
+                    return reject(err);
+                }
+
+                return resolve(objects);
+            });
+        });
+    },
+    save(model) {
+        return new Promise((resolve, reject) => {
+            model.save(err => {
+                if (err) {
+                    return reject(err);
+                }
+
+                return resolve(model);
+            });
+        });
+    }
+};

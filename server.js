@@ -1,16 +1,11 @@
-const express = require("express");
+require('./db').init()
+    .then((db)=>require('./data').init(db))
+    .then((data)=>require('./app').init(data))
+    .then((app)=>{
+        const app = express();
+        require('./routes/server.routes')(app);
+        require('./routes/api.routes').attach(app);
+        app.listen(3000, console.log("Server works!"));
+    });
 
-const app = express();
-app.set('view engine', 'pug');
-const bodyParser=require('body-parser');
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-
-require('./routes/server.routes')(app);
-require('./routes/api.routes').attach(app);
-//let apiRouter=require('./routes/api.routes').getRouter();
-//app.use('/api', apiRouter);
-app.listen(3000, console.log("Server works!"));
