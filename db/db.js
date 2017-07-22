@@ -14,7 +14,7 @@ const init = (connectionString) => {
 module.exports = { init };
 
 const mongodb = require('mongodb');
-const MongoClient = mongodb.MongoClient;
+//const MongoClient = mongodb.MongoClient;
 
 
 

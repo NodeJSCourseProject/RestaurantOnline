@@ -1,16 +1,15 @@
-const express = require("express");
+const async=()=>{
+    return Promise.resolve(); 
+};
 
-const app = express();
-app.set('view engine', 'pug');
-const bodyParser=require('body-parser');
+const config=require('./config');
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+async()
+    .then(()=>require('./db').init(config.connectionString))
+    .then((db)=>require('./data').init(db))
+    .then((data)=>require('./app').init(data))
+    .then((app)=>{
+        app.listen(config.port, console.log(`Server works at: ${config.port}!`));
+    });
 
-require('./routes/server.routes')(app);
-require('./routes/api.routes').attach(app);
-//let apiRouter=require('./routes/api.routes').getRouter();
-//app.use('/api', apiRouter);
-app.listen(3000, console.log("Server works!"));
+
