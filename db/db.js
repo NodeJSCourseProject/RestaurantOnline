@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb');
 
 const protocol = 'mongodb:/';
-const server = 'localhost:27017';
+const server = 'localhost:3000';
 const databaseName = 'RestaurantOnline';
 
 const connectionString = `${protocol}/${server}/${databaseName}`;
