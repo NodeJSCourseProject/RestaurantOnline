@@ -12,8 +12,7 @@ class Data {
         this.db=db;
         this.ModelClass=ModelClass;
         this.collectionName=this._getCollectionName();
-        this.collection=this.db.collection(this.collectionName);
-        db.collection();        
+        this.collection=this.db.collection(this.collectionName);      
     };
     //?????????
     getAll() {
@@ -32,15 +31,14 @@ class Data {
     }
     
     _getCollectionName() {
-        //return this.ModelClass.name.toLowerCase()+'s';
-        return this.ModelClass.
+        return this.ModelClass.name.toLowerCase()+'s';
     }
 };
 
 const init =(db)=> {
     return Promise.resolve({
-        restaurants: new Data(Restaurant),
-        users: new Data(User),
+        restaurants: new Data(db,Restaurant),
+        //users: new Data(db,User),
     });
 };
 

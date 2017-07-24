@@ -14,7 +14,8 @@ const init=(data) => {
     });
 
     app.get("/home", (req, res) => {
-        res.render("home");
+        console.log("TEST loaded");
+        res.render("landing");
     });
 
     app.get("/menu", (req, res) => {

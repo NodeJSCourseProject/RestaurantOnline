@@ -4,6 +4,7 @@ const attach=(app)=>{
     });
 
     app.get("/home", (req, res) => {
+        console.log("landing loaded");
         res.render("landing");
     });
 

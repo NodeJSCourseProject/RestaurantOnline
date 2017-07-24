@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb');
 
 const protocol = 'mongodb:/';
-const server = 'localhost:3000';
+const server = 'localhost:27017';
 const databaseName = 'RestaurantOnline';
 
 const connectionString = `${protocol}/${server}/${databaseName}`;
@@ -15,9 +15,6 @@ module.exports = { init };
 
 const mongodb = require('mongodb');
 //const MongoClient = mongodb.MongoClient;
-
-
-
 
 // connectionPromise.then((db) => {
 //     return db;
