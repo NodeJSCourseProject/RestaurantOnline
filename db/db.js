@@ -13,8 +13,22 @@ const init = (connectionString) => {
 
 module.exports = { init };
 
-const mongodb = require('mongodb');
+//const mongodb = require('mongodb');
 // const MongoClient = mongodb.MongoClient;
+// /* eslint-disable no-console */
+
+// const { MongoClient } = require('mongodb');
+
+// const init = (connectionString) => {
+//     return MongoClient.connect(connectionString)
+//         .then((db) => {
+//             console.log('Databases connected');
+//             return db;
+//         });
+// };
+
+//const mongodb = require('mongodb');
+//const MongoClient = mongodb.MongoClient;
 
 // connectionPromise.then((db) => {
 //     return db;
@@ -46,3 +60,4 @@ const mongodb = require('mongodb');
 // .catch((error) => {
 //     console.log(error);
 // })
+
