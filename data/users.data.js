@@ -44,10 +44,14 @@ module.exports = function(models) {
             return dataUtils.save(user);
         },
         getUserByUsername(username) {
-            return dataUtils.getByQuery(User, { username });
+            return new Promise((resolve, reject) => {
+                dataUtils.getByQuery(User, { username });
+            });
         },
         getAllUsers() {
-            return dataUtils.getAll(User);
+            return new Promise((resolve, reject) => {
+            dataUtils.getAll(User);
+            });
         },
     };
 };

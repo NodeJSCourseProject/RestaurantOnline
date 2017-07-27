@@ -10,7 +10,7 @@ const init=(data) => {
     }));
 
     app.get('/', (req, res)=>{
-        return res.send('home');
+        return res.redirect('/home');
     });
 
     app.get('/home', (req, res) => {
@@ -36,7 +36,7 @@ const init=(data) => {
 
     app.get('/profile', (req, res) => {
         console.log('Your profile');
-        res.render('profile');
+        res.render('../views/user.profile.pug');
     });
 
     app.get('/restaurants', (req, res) => {
@@ -69,11 +69,6 @@ const init=(data) => {
     });
     return Promise.resolve(app);
 };
-
-// require('./routes/server.routes')(app);
-// require('./routes/api.routes').attach(app);
-
-// app.listen(3000, console.log('Server works!'));
 
 module.exports={
     init,

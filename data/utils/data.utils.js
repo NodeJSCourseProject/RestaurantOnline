@@ -19,112 +19,9 @@ module.exports = {
             });
         });
     },
-    // loadOrCreateCountry(Country, name, meal) {
-    //     return new Promise((resolve, reject) => {
-    //         Country.findOne({ name }, (err, dbCountry) => {
-    //             let country = dbCountry;
-
-    //             if (err) {
-    //                 return reject(err);
-    //             }
-
-    //             if (country) {
-    //                 return resolve(country);
-    //             }
-
-    //             country = new Country({
-    //                 name,
-    //                 meal: {
-    //                     _id: meal._id,
-    //                     name: meal.name
-    //                 }
-    //             });
-    //             return this.save(country)
-    //                 .then(resolve)
-    //                 .catch(reject);
-    //         });
-    //     });
-    // },
-    // loadOrCreateCity(City, name, country, meal) {
-    //     return new Promise((resolve, reject) => {
-    //         City.findOne({ name }, (err, dbCity) => {
-    //             let city = dbCity;
-
-    //             if (err) {
-    //                 return reject(err);
-    //             }
-
-    //             if (city) {
-    //                 return resolve(city);
-    //             }
-
-    //             city = new City({
-    //                 name,
-    //                 country: {
-    //                     _id: country._id,
-    //                     name: country.name
-    //                 },
-    //                 meal: {
-    //                     _id: meal._id,
-    //                     name: meal.name
-    //                 }
-    //             });
-    //             return this.save(city)
-    //                 .then(resolve)
-    //                 .catch(reject);
-    //         });
-    //     });
-    // },
-    // loadOrCreatePower(Power, name) {
-    //     return new Promise((resolve, reject) => {
-    //         Power.findOne({ name }, (err, dbPower) => {
-    //             let power = dbPower;
-
-    //             if (err) {
-    //                 return reject(err);
-    //             }
-
-    //             if (power) {
-    //                 return resolve(power);
-    //             }
-
-    //             power = new Power({ name });
-    //             return this.save(power)
-    //                 .then(resolve)
-    //                 .catch(reject);
-    //         });
-    //     });
-    // },
-    // loadOrCreateFraction(Fraction, name, meal, alignment) {
-    //     return new Promise((resolve, reject) => {
-    //         Fraction.findOne({ name }, (err, dbFraction) => {
-    //             let fraction = dbFraction;
-
-    //             if (err) {
-    //                 return reject(err);
-    //             }
-
-    //             if (fraction) {
-    //                 return resolve(fraction);
-    //             }
-
-    //             fraction = new Fraction({
-    //                 name,
-    //                 meal: {
-    //                     _id: meal._id,
-    //                     name: meal.name
-    //                 },
-    //                 alignment
-    //             });
-    //             return this.save(fraction)
-    //                 .then(resolve)
-    //                 .catch(reject);
-    //         });
-    //     });
-    // },
     update(model) {
         return new Promise((resolve, reject) => {
-            model.save(err => {
+            model.save((err) => {
                 if (err) {
                     return reject(err);
                 }
@@ -158,7 +55,7 @@ module.exports = {
     },
     save(model) {
         return new Promise((resolve, reject) => {
-            model.save(err => {
+            model.save((err) => {
                 if (err) {
                     return reject(err);
                 }
@@ -166,5 +63,5 @@ module.exports = {
                 return resolve(model);
             });
         });
-    }
+    },
 };
