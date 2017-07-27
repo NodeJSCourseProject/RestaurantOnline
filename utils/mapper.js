@@ -4,5 +4,5 @@ module.exports = {
             mapped[prop] = obj[prop];
             return mapped;
         }, {});
-    }
+    },
 };

@@ -1,5 +1,5 @@
 const async=()=>{
-    return Promise.resolve(); 
+    return Promise.resolve();
 };
 
 const config=require('./config');
@@ -11,5 +11,3 @@ async()
     .then((app)=>{
         app.listen(config.port, console.log(`Server works at: ${config.port}!`));
     });
-
-

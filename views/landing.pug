@@ -6,23 +6,48 @@ head
     style
         include ../public/css/landing.css
     title 
-        | Geosuke | Home page
+        | MDB | Home page
 body
     nav
         ul
             li.menu
                 a(href="#") Reservations
             li.menu
-                a(href="#") Menu
+                a(href="/menu") Menu
             li.menu
-                a(href="#") About
+                a(href="/about") About
             li.auth
-                a(href="#") Log in
+                a(href="/login") Log in
             li.auth
-                a(href="#") Register
+                a(href="/register") Register
+        ul.nav.navbar-nav.navbar-right
+            if currentUser
+                li.dropdown
+                    a.dropdown-toggle(href="#", data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false")
+                        span.glyphicon.glyphicon-user
+                        | #{currentUser.username} 
+                        b.caret
+                    ul.dropdown-menu
+                        li
+                            a(href="/profile/"+currentUser.username)
+                                span.glyphicon.glyphicon-user
+                                | Profile
+                        li
+                            a(href="/settings/"+currentUser.username)
+                                span.glyphicon.glyphicon-cog
+                                | Settings
+                        li.divider
+                        li
+                            a#logout-btn(href="/logout")
+                                span.glyphicon.glyphicon-cog
+                                | Logout
+            else
+                include main/register.pug
+                include main/login.pug
+
     header
         div.naming
-            p Geosuke
+            p MDB
     footer
         p 
             small: strong
