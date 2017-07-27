@@ -16,34 +16,36 @@ body
                 a(href="/menu") Menu
             li.menu
                 a(href="/about") About
+            li.menu
+                a(href="/profile") Profile
             li.auth
                 a(href="/login") Log in
             li.auth
                 a(href="/register") Register
-        ul.nav.navbar-nav.navbar-right
-            if currentUser
-                li.dropdown
-                    a.dropdown-toggle(href="#", data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false")
-                        span.glyphicon.glyphicon-user
-                        | #{currentUser.username} 
-                        b.caret
-                    ul.dropdown-menu
-                        li
-                            a(href="/profile/"+currentUser.username)
-                                span.glyphicon.glyphicon-user
-                                | Profile
-                        li
-                            a(href="/settings/"+currentUser.username)
-                                span.glyphicon.glyphicon-cog
-                                | Settings
-                        li.divider
-                        li
-                            a#logout-btn(href="/logout")
-                                span.glyphicon.glyphicon-cog
-                                | Logout
-            else
-                include main/register.pug
-                include main/login.pug
+        //- ul.nav.navbar-nav.navbar-right
+        //-     if currentUser
+        //-         li.dropdown
+        //-             a.dropdown-toggle(href="#", data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false")
+        //-                 span.glyphicon.glyphicon-user
+        //-                 | #{currentUser.username} 
+        //-                 b.caret
+        //-             ul.dropdown-menu
+        //-                 li
+        //-                     a(href="/profile/"+currentUser.username)
+        //-                         span.glyphicon.glyphicon-user
+        //-                         | Profile
+        //-                 li
+        //-                     a(href="/settings/"+currentUser.username)
+        //-                         span.glyphicon.glyphicon-cog
+        //-                         | Settings
+        //-                 li.divider
+        //-                 li
+        //-                     a#logout-btn(href="/logout")
+        //-                         span.glyphicon.glyphicon-cog
+        //-                         | Logout
+        //-     else
+        //-         include main/register.pug
+        //-         include main/login.pug
 
     header
         div.naming

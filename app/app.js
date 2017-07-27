@@ -39,25 +39,6 @@ const init=(data) => {
         res.render('../views/user.profile.pug');
     });
 
-    app.get('/restaurants', (req, res) => {
-        return data.restaurants.GetAll()
-            .then((restaurants)=>{
-                console.log('restaurants');
-                return res.render('restaurants/all', {
-                    context: restaurnats,
-                });
-            });
-    });
-
-    app.post('/restaurants', (req, res)=> {
-        const restaurant=req.body;
-        return data.restaurants.create(restaurant)
-            .then((dbReataurant)=>{
-                return res.redirect('/restaurants/'+dbReataurant.id);
-            });
-    });
-
-
     app.get('/register', (req, res) => {
         console.log('reg');
         res.render('../views/main/register.pug');
