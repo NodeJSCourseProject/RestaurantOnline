@@ -28,6 +28,8 @@
     "jsdom": "^11.1.0",
     "mongodb": "^2.2.30",
     "node-gitignore": "^1.0.7",
+    "passport": "^0.3.2",
+    "passport-oneprofile": "0.0.2",
     "pug": "^2.0.0-rc.2"
   }
 }

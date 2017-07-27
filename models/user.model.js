@@ -1,8 +1,8 @@
-const modelRegistrator = require('./utils/model-registrator');
+const modelRegistrator = require('./utils/model.registrator');
 
-const hashing = require('../utilities/encryption');
+const hashing = require('../utils/encryption');
 const forbiddenCharacters = ['<', '>', '(', ')'];
-const userRoles = ['user', 'powerUser', 'admin'];
+const userRoles = ['user', 'admin'];
 
 module.exports = modelRegistrator.register('User', {
     username: {
