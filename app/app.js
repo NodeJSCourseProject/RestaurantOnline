@@ -31,7 +31,7 @@ const init=(data) => {
     //return Promise.resolve(app);
 
     app.get('/', (req, res)=>{
-        return res.send('home');
+        return res.redirect('/home');
     });
 
     app.get('/home', (req, res) => {
@@ -57,27 +57,8 @@ const init=(data) => {
 
     app.get('/profile', (req, res) => {
         console.log('Your profile');
-        res.render('profile');
+        res.render('../views/user.profile.pug');
     });
-
-    app.get('/restaurants', (req, res) => {
-        return data.restaurants.GetAll()
-            .then((restaurants)=>{
-                console.log('restaurants');
-                return res.render('restaurants/all', {
-                    context: restaurnats,
-                });
-            });
-    });
-
-    app.post('/restaurants', (req, res)=> {
-        const restaurant=req.body;
-        return data.restaurants.create(restaurant)
-            .then((dbReataurant)=>{
-                return res.redirect('/restaurants/'+dbReataurant.id);
-            });
-    });
-
 
     app.get('/register', (req, res) => {
         console.log('reg');
@@ -90,11 +71,6 @@ const init=(data) => {
     });
     return Promise.resolve(app);
 };
-
-// require('./routes/server.routes')(app);
-// require('./routes/api.routes').attach(app);
-
-// app.listen(3000, console.log('Server works!'));
 
 module.exports={
     init,

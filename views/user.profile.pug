@@ -1,6 +1,6 @@
 extends layout.pug
 block styles
-    link(rel="stylesheet" href='')
+    link(rel="stylesheet" href='../public/css/user.profile')
 
 block main-content
     .container
@@ -8,13 +8,11 @@ block main-content
             .col-xs-12.col-sm-6.col-md-6.profile-box
                 .well.well-sm
                     .row
-                        .col-sm-6.col-md-4
-                            img.img-rounded.img-responsive(src="http://yeslk.com/images/OIP-M56b703cb09f76bbca66f8c9daae538e7H0.jpg", alt="avatar-logo")
                         .col-sm-6.col-md-8
-                            h4 Username: #{loadedUsername.username}
+                            h4 Username:  #{loadedUsername.username}
                             div
                                 i.glyphicon.glyphicon-envelope 
-                                    span #{loadedUsername.email}
+                                   span #{loadedUsername.email}
                             br
                             div
                                 i.glyphicon.glyphicon-user 
@@ -26,17 +24,11 @@ block main-content
                             br
             .col-xs-12.col-sm-6.col-md-6
                     div
-                        a.btn.btn-info(href= loadedUsername.username + "/posts", title="title") All posts by #{loadedUsername.username}
+                        a.btn.btn-info(href= loadedUsername.username + "/posts", title="title") All orders by #{loadedUsername.username}
                     br
             .col-xs-12.col-sm-6.col-md-6
                 .well.well-sm
                     div
                         i.glyphicon.glyphicon-comment 
-                            span Comments: 
-            .col-xs-12.col-sm-6.col-md-6
-                .well.well-sm
-                    div
-                        i.glyphicon.glyphicon-list-alt 
-                            span Subscriptions:
-
-
+                            span Orders: 
+                            
