@@ -3,9 +3,9 @@ module.exports = (data) => {
         profile: (req, res) => {
             const username = req.params.currentUser;
             let options = [];
-
             data.users.findByUsername(username)
                 .then((loadedUsername) => {
+                    console.log(loadedUsername);
                     options = { loadedUsername };
                     res.render('../../views/user.profile.pug', options);
                 });
