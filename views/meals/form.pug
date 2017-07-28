@@ -1,0 +1,17 @@
+block head
+    script(src="https://rawgit.com/bassjobsen/Bootstrap-3-Typeahead/master/bootstrap3-typeahead.js")
+    link(rel="stylesheet", href="/libs/typeahead/style.css")
+    script(src="/static/js/categories.js")
+
+block body
+    != messages()
+
+    form(action="/meals" method="POST")
+        input.form-control#autocomplete(name="category")
+        input.form-control(name="name" required type="text" placeholder="Enter meal name")
+        input.form-control(name="description" type="text" placeholder="Enter meal description")
+        input.form-control(name="weigth" type="number")
+        input.form-control(name="price" required type="number")
+        input(type="file", name="picture")
+        button.btn.btn-success
+            | Save
