@@ -26,7 +26,7 @@ class AuthController {
                 return this.data.users.create(bodyUser);
             })
             .then((dbUser) => {
-                return res.redirect('/auth/sign-in');
+                return res.redirect('sign-in');
             })
             .catch((err) => {
                 req.flash('error', err);
