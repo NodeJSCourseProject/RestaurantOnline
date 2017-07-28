@@ -62,14 +62,14 @@ header {
     color: #C09A68;
     font-size: 100px;
     position: absolute;
-    top: 20%;
-    left: 34%;
-    background-color: rgba(0, 0, 0, 0.7);
+    top: 30%;
+    left: 13%;
+    background-color: rgba(0, 0, 0, 0.9);
     border: 1px solid #C09A68;
 }
 
 .naming p {
-    margin: 30px 30px;
+    margin: 30px 60px;
 }
 
 footer {
@@ -78,6 +78,7 @@ footer {
     color: #C09A68;
     background-color: #333;
     text-align: center;
+    max-height: 150px;
 }
 
 /*---------------------------------*/
@@ -111,7 +112,7 @@ footer {
   box-sizing: border-box;
   font-size: 14px;
 }
-.form button {
+.form input[type="submit"] {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;

@@ -20,36 +20,36 @@ body
             li.menu
                 a(href="/profile") Profile
             li.auth
-                a(href="#login" onclick='$("#login").toggle(); $("#register").hide();') Log in
+                a(href="#login" id="loginNav" onclick='$("#login").toggle(); $("#register").hide();') Log in
             li.auth
-                a(href="#register" onclick='$("#register").toggle(); $("#login").hide();') Register
+                a(href="#register" id="loginNav" onclick='$("#register").toggle(); $("#login").hide();') Register
     header
         div.naming
             p MDB
-    section(class="collapse" id="register")
-        div(class="register-form collapse login-page" id="register")
+    section(id="register")
+        div(class="register-form login-page" id="register")
             div.form
-                form(class="register-form" )
-                    input(type="text" placeholder="name")
-                    input(type="password" placeholder="password")
-                    input(type="text" placeholder="email address")
-                    button
-                        | create
+                form(action='/auth/sign-up', method='post', role='form', autocomplete='on')
+                    input(type="text" name="name" placeholder="username" tabindex='1')
+                    input(type="password" name="password" placeholder="password" tabindex='2')
+                    input(type="text" name="email" placeholder="email address" tabindex='3')
+                    input(type="text" name="first-name" placeholder="first name" tabindex='4')
+                    input(type="text" name="last-name" placeholder="last name" tabindex='5')
+                    input(type="submit" name="register" value="register" tabindex='6')
                     p.message
                         | Already registered? 
-                        a(href="#signin")
+                        a(href="#signin" onclick='$("#login").toggle(); $("#register").hide();')
                             | Sign In
-    section(class="collapse" id="login")
-        div(class="login-form login-page collapse" id="login")
+    section(id="login")
+        div(class="login-form login-page" id="login")
             div(class="form")
-                form(class="login-form")
-                    input(type="text" placeholder="username")
-                    input(type="password" placeholder="password")
-                    button
-                        | login
+                form(action='/login', method='post', role='form', autocomplete='off')
+                    input(type="text" name="username" placeholder="username" tabindex='1')
+                    input(type="password" name="password" placeholder="password" tabindex='2')                                
+                    input(type="submit" name="login" value="login" tabindex='4')       
                     p.message
                         | Not registered? 
-                        a(href="#register")
+                        a(href="#register" onclick='$("#register").toggle(); $("#login").hide();')
                             |Create an account
     footer
         p 
