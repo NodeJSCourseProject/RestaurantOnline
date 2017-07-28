@@ -63,13 +63,13 @@ header {
     font-size: 100px;
     position: absolute;
     top: 30%;
-    left: 13%;
+    left: 10%;
     background-color: rgba(0, 0, 0, 0.9);
     border: 1px solid #C09A68;
 }
 
 .naming p {
-    margin: 30px 60px;
+    margin: 30px 80px;
 }
 
 footer {
@@ -81,7 +81,8 @@ footer {
     max-height: 150px;
 }
 
-/*---------------------------------*/
+/* Login and Register*/
+
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 .login-page {
