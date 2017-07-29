@@ -1,9 +1,9 @@
 const BaseData=require('./base/base.data');
-const Meal=require('../models/meal.model');
+const Category=require('../models/category.model');
 
-class MealsData extends BaseData {
+class CategorysData extends BaseData {
     constructor(db) {
-        super(db, Meal, Meal);
+        super(db, Category, Category);
     }
     _isModelValid(model) {
         // custom validation 
@@ -11,4 +11,4 @@ class MealsData extends BaseData {
     }
 }
 
-module.exports=MealsData;
+module.exports=CategorysData;

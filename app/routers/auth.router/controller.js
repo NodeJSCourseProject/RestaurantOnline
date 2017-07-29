@@ -7,6 +7,7 @@ class AuthController {
         return res.render('auth/sign-up');
     }
     getSignInForm(req, res) {
+        console.log('proper form');
         return res.render('auth/sign-in');
     }
     signOut(req, res) {

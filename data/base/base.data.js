@@ -1,3 +1,5 @@
+const { ObjectID } = require('mongodb');
+
 class BaseData {
     constructor(db, ModelClass, validator) {
         this.db = db;
@@ -27,6 +29,8 @@ class BaseData {
     }
 
     create(model) {
+        console.log('---');
+        console.log(model);
         if (!this._isModelValid(model)) {
             return Promise.reject('Validation failed!');
         }

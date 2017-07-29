@@ -6,12 +6,24 @@ block head
 block body
     != messages()
 
-    form(action="/meals" method="POST")
-        input.form-control#autocomplete(name="category")
-        input.form-control(name="name" required type="text" placeholder="Enter meal name")
+    form(action="/meals/form" method="POST")
+        label(for='category') Category
+        input.form-control#autocomplete(name="category" minlength = "1")
+        br
+        label(for='name') Meal name
+        input.form-control(name="name" required type="text" placeholder="Enter meal name" minlength = "1")
+        br
+        label(for='description') Description
         input.form-control(name="description" type="text" placeholder="Enter meal description")
-        input.form-control(name="weigth" type="number")
-        input.form-control(name="price" required type="number")
-        input(type="file", name="picture")
+        br
+        label(for='weight') Weight
+        input.form-control(name="weigth" type="number" step="0.001" min="0.001")
+        br
+        label(for='price') Price
+        input.form-control(name="price" required type="number" step="0.01" min="0.01")
+        br
+        label(for='picture') Picture
+        input(type="file", name="picture" accept=".jpg, .jpeg, .png")
+        br
         button.btn.btn-success
             | Save
