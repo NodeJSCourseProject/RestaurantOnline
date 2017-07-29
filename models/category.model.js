@@ -1,8 +1,8 @@
-class Meal {
+class Category {
     static isValid(model) {
         return typeof model !== 'undefined' &&
             typeof model.name === 'string' &&
-            model.name.length > 1;   //TODO the rest
+            model.name.length >= 1; 
     }
 
     get id() {
@@ -10,7 +10,7 @@ class Meal {
     }
 
     static toViewModel(model) {
-        const viewModel = new Meal();
+        const viewModel = new Category();
 
         Object.keys(model)
             .forEach((prop) => {
@@ -21,4 +21,4 @@ class Meal {
     }
 }
 
-module.exports = Meal;
+module.exports = Category;

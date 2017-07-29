@@ -1,23 +1,12 @@
 const express = require('express');
-const bodyParser=require('body-parser');
+const bodyParser = require('body-parser');
 
 
 
-const init=(data) => {
+const init = (data) => {
     const app = express();
     require('./config').applyTo(app);
     require('./auth').applyTo(app, data);
-
-    app.use(require('connect-flash')());
-    app.use((req, res, next) => {
-        res.locals.messages = require('express-messages')(req, res);
-        next();
-    });
-
-    //require('./routers')
-    //    .attachTo(app, data);
-
-    //console.log(data);
 
     app.set('view engine', 'pug');
     app.use(bodyParser.json());
@@ -25,10 +14,16 @@ const init=(data) => {
         extended: true,
     }));
 
-        //const app = express();
 
+    app.use(require('connect-flash')());
+    app.use((req, res, next) => {
+        res.locals.messages = require('express-messages')(req, res);
+        next();
+    });
 
-    //return Promise.resolve(app);
+    require('./routers')
+        .attachTo(app, data);
+
 
     app.get('/', (req, res) => {
         res.redirect('/home');
@@ -42,12 +37,12 @@ const init=(data) => {
     app.get('/menu', (req, res) => {
         console.log('Menu loaded');
         res.render('menu'); // relative route, no need for ./all
-       // res.render('./page.not.found')
+        // res.render('./page.not.found')
     });
 
     app.get('/menu/forms', (req, res) => {
         res.render('menu'); // relative route, no need for ./all
-       // res.render('./page.not.found')
+        // res.render('./page.not.found')
     });
 
     app.get('/orders', (req, res) => {
@@ -72,6 +67,6 @@ const init=(data) => {
     return Promise.resolve(app);
 };
 
-module.exports={
+module.exports = {
     init,
 };

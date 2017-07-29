@@ -7,7 +7,7 @@ li.dropdown
             .text-center
                 h3
                     b Log In
-            form#login-form(action='/login', method='post', role='form', autocomplete='off')
+            form#login-form(action='/auth/sign-in', method='post', role='form', autocomplete='off')
                 .form-group
                     label(for='username') Username
                     input#username.form-control(type='text', name='username', tabindex='1', placeholder='Username', value='', autocomplete='off')

@@ -19,8 +19,8 @@ const attachTo = (app, data) => {
             return controller.signUp(req, res);
         })
         .post('/sign-in', passport.authenticate('local', {
-            successRedirect: '/',
-            failureRedirect: '/auth/sign-in',
+            successRedirect: '/meals/form',
+            failureRedirect: '/auth/sign-up',
             failureFlash: true,
         }));
 

@@ -11,6 +11,7 @@ class Users{
 //const CategoriesData = require('./categories.data');
 //const TodosData = require('./todos.data');
 const UsersData = require('./users.data');
+const CategorysData = require('./categorys.data');
 
 //module.exports = { init };
 // class Data {
@@ -43,9 +44,10 @@ const UsersData = require('./users.data');
 
 const init = (db) => {
     return Promise.resolve({
-        restaurants: new MealsData(db),
+        meals: new MealsData(db),
         // users: new Data(db,User),
         users: new UsersData(db),
+        categorys: new CategorysData(db),
 
     });
 };
