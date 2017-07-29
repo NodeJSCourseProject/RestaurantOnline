@@ -32,15 +32,16 @@
     "expressjs": "^1.0.1",
     "fs": "^0.0.1-security",
     "isomorphic-fetch": "^2.2.1",
+    "jquery": "^3.2.1",
     "jsdom": "^11.1.0",
     "mongodb": "^2.2.30",
     "node-gitignore": "^1.0.7",
     "nodemon": "^1.11.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "path": "^0.12.7",
-    "passport": "^0.3.2",
     "passport-oneprofile": "0.0.2",
-    "pug": "^2.0.0-rc.2"
+    "path": "^0.12.7",
+    "pug": "^2.0.0-rc.2",
+    "pug-bootstrap": "^0.0.15"
   }
 }

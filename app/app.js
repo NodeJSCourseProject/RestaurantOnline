@@ -14,8 +14,8 @@ const init=(data) => {
         next();
     });
 
-    require('./routers')
-        .attachTo(app, data);
+    //require('./routers')
+    //    .attachTo(app, data);
 
     //console.log(data);
 
@@ -30,8 +30,8 @@ const init=(data) => {
 
     //return Promise.resolve(app);
 
-    app.get('/', (req, res)=>{
-        return res.redirect('/home');
+    app.get('/', (req, res) => {
+        res.redirect('/home');
     });
 
     app.get('/home', (req, res) => {
