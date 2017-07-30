@@ -5,11 +5,12 @@ class CategorysController {
 
     getAll(req, res) {
         return this.data.categorys.getAll()
-            .then((items) => {
+            .then((categories) => {
+                //const names = categories.map(cat=>cat.name);
                 console.log('-*-');
-                console.log(items);
+                console.log(categories);
                 return res.render('categorys', {
-                    context: items,
+                    context: categories,
                 });
             });
     }
