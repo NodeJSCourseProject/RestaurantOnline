@@ -31,8 +31,8 @@ const attachTo = (app, data) => {
             return controller.getAll(req, res);
         })
         .post('/form', (req, res) => {
-            console.log('post info---')
-            console.log(req.body);
+            // console.log('post info---')
+            // console.log(req.body);
             if (!req.user) {
                 return Promise.resolve()
                     .then(() => {

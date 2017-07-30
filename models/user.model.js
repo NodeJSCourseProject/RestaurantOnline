@@ -1,8 +1,8 @@
 class User {
     static isValid(model) {
          return typeof model !== 'undefined' &&
-            typeof model.name === 'string' &&
-            model.name.length > 4;
+            typeof model.username === 'string' &&
+            model.username.length > 4;
     }
 
     get id() {

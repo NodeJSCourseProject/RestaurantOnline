@@ -28,11 +28,11 @@ body
         div(class="register-form login-page" id="register")
             div.form
                 form(action='/auth/sign-up', method='post', role='form', autocomplete='on')
-                    input(type="text" name="name" placeholder="username" tabindex='1')
+                    input(type="text" name="username" placeholder="username" tabindex='1')
                     input(type="password" name="password" placeholder="password" tabindex='2')
                     input(type="text" name="email" placeholder="email address" tabindex='3')
-                    input(type="text" name="first-name" placeholder="first name" tabindex='4')
-                    input(type="text" name="last-name" placeholder="last name" tabindex='5')
+                    input(type="text" name="firstName" placeholder="first name" tabindex='4')
+                    input(type="text" name="lastName" placeholder="last name" tabindex='5')
                     input(type="submit" name="register" value="register" tabindex='6')
                     p.message
                         | Already registered? 
