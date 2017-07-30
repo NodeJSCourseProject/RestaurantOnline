@@ -32,10 +32,7 @@ class BaseData {
         if (!this._isModelValid(model)) {
             return Promise.reject('Validation failed!');
         }
-        return this.collection.insert(model)
-            .then(() => {
-                return model;
-            });
+        return this.collection.insert(model);
     }
 
     findById(id) {

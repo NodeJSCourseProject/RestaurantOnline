@@ -16,8 +16,8 @@ class UsersController {
                 });
         }
         postUpdateProfile(req, res, next) {
-            req.assert('email', 'Enter a valid email, please').isEmail();
-            req.sanitize('email').normalizeEmail({ remove_dots: false });
+            // req.assert('email', 'Enter a valid email, please').isEmail();
+            // req.sanitize('email').normalizeEmail({ remove_dots: false });
 
             const errors = req.validationErrors();
 
