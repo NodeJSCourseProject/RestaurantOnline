@@ -1,6 +1,8 @@
 class User {
     static isValid(model) {
-        return true;
+         return typeof model !== 'undefined' &&
+            typeof model.name === 'string' &&
+            model.name.length > 4;
     }
 
     get id() {
@@ -17,99 +19,34 @@ class User {
 
         return viewModel;
     }
+    createUser() {
+            return new User()
+                .then(user => {
+                    user.save(err => {
+                        if (err) {
+                            return err;
+                        }
+                        return user;
+                    });
+                })
+                .catch(err => {
+                    return err;
+                });
+        }
+    getUserById(id) {
+        return new Promise((resolve, reject) => {
+            User.findOne({
+                _id: id
+            }, (err, user) => {
+                if (err) {
+                    return reject(err);
+                }
+                return resolve(user || null);
+            });
+        });
+    }
 }
 
-module.exports = User;// //const modelRegistrator = require('./utils/model-registrator');
+module.exports = User;
 
-// const hashing = require('../utilities/encryption');
-// const forbiddenCharacters = ['<', '>', '(', ')'];
-// const userRoles = ['user', 'powerUser', 'admin'];
 
-// module.exports = modelRegistrator.register('User', {
-//     username: {
-//         type: String,
-//         required: true,
-//         unique: true,
-//         trim: true,
-//         minlength: 2,
-//         maxlength: 30,
-//         validate: {
-//             validator: function(val) {
-//                 return val.match('^[a-zA-Z0-9_.]*$');
-//             },
-//             message: 'Username should only contain alphanumeric characters!',
-//         },
-//     },
-//     email: {
-//         type: String,
-//         required: true,
-//         trim: true,
-//         minlength: 2,
-//         maxlength: 30,
-//         match: /[A-Za-z0-9_]/,
-//     },
-//     password: {
-//         type: String,
-//         required: true,
-//     },
-//     salt: {
-//         type: String,
-//         required: true,
-//     },
-//     firstName: {
-//         type: String,
-//         required: true,
-//         trim: true,
-//         minlength: 2,
-//         maxlength: 30,
-//         validate: {
-//             validator: function(val) {
-//                 const containsForbiddenChars = forbiddenCharacters.some(
-//                     (item) => {
-//                         return val.includes(item);
-//                     }
-//                 );
-//                 return !containsForbiddenChars;
-//             },
-//             message: 'First name should not contain invalid characters!',
-//         },
-//     },
-//     lastName: {
-//         type: String,
-//         required: true,
-//         trim: true,
-//         minlength: 2,
-//         maxlength: 30,
-//         validate: {
-//             validator: function(val) {
-//                 const containsForbiddenChars = forbiddenCharacters.some(
-//                     (item) => {
-//                         return val.includes(item);
-//                     }
-//                 );
-//                 return !containsForbiddenChars;
-//             },
-//             message: 'Last name should not contain invalid characters!',
-//         },
-//     },
-//     role: {
-//         type: String,
-//         default: 'user',
-//         required: true,
-//         validate: {
-//             validator: function(val) {
-//                 return userRoles.some((item) => {
-//                     return item === val;
-//                 });
-//             },
-//             message: 'Invalid user role!',
-//         },
-//     },
-//     orders: {
-//         type: [{}],
-//         default: [],
-//     },
-//     imagePath: {
-//         type: String,
-//     },
-// });

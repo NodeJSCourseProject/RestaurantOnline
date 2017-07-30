@@ -1,74 +1,83 @@
-'use strict';
+// "use strict";
 
-const passport = require('passport');
+// const User = require("../../models/user.model");
 
-module.exports = (data) => {
-    return {
-        register: (req, res) => {
-            const user = req.body;
-            if (user.password !== user.confirmPassword) {
-                req.session.error = 'Passwords do not match! Please try again!';
-                res.redirect('/');
-            } else if (user.password.length < 6) {
-                req.session.error = 'Password should be at least 6 characters long! Please try again!';
-                res.redirect('/');
-            } else {
-                data.users.createUser(user, (createError, createdUser) => {
-                    if (createError) {
-                        req.session.error = `Username: '${user.username}' already exists! Please try again!`;
-                        res.redirect('/');
-                        return;
-                    }
+// module.exports = function(data) {
+//     return {
+//         getAccount(req, res) {
+//             return Promise.resolve()
+//                 .then(() => {
+//                     if (!req.isAuthenticated()) {
+//                         res.status(401).redirect("/unauthorized");
+//                     } else {
+//                         res.render("../../views/user.profile.pug", { user: req.user });
+//                     }
+//                 });
+//         },
+//         postUpdateProfile(req, res, next) {
+//             req.assert("email", "Моля въведете валиден Email адрес!!!").isEmail();
+//             req.sanitize("email").normalizeEmail({ remove_dots: false });
 
-                    req.logIn(createdUser, (loginError) => {
-                        if (loginError) {
-                            res.status(400);
-                            return res.send({ reason: loginError.toString() });
-                        }
-                            req.session.info = `${createdUser.username} registered and logged in successfully.`;
-                            res.redirect('/');
-                    });
-                });
-            }
-        },
-        login(req, res, next) {
-            const auth = passport.authenticate('local', (error, user) => {
-                if (error) {
-                    return next(error);
-                }
+//             const errors = req.validationErrors();
 
-                if (!user) {
-                    req.session.error = 'Wrong username or password! Please try again!';
-                    res.redirect('/');
-                    return;
-                }
+//             if (errors) {
+//                 req.flash("errors", errors);
+//                 return res.redirect("/profile");
+//             }
+//             User.findById(req.user.id, (err, user) => {
+//                 if (err) {
+//                     return next(err);
+//                 }
+//                 user.email = req.body.email || "";
+//                 user.profile.name = req.body.name || "";
+//                 user.profile.gender = req.body.gender || "";
+//                 user.profile.location = req.body.location || "";
+//                 user.profile.website = req.body.website || "";
+//                 user.save((err) => {
+//                     if (err) {
+//                         if (err.code === 11000) {
+//                             req.flash("errors", { msg: "Email адресът който въведохте вече е асоциазиран със съществуващ акаунт!!!" });
+//                             return res.redirect("/profile");
+//                         }
+//                         return next(err);
+//                     }
+//                     req.flash("success", { msg: "Информацията във вашият профил е сменена!!!" });
+//                     res.redirect("/profile");
+//                 });
+//             });
+//         },
+//         postUpdatePassword(req, res, next) {
+//             req.assert("password", "Паролата трябва да е поне 4 символа!!!").len(4);
+//             req.assert("confirmPassword", "Паролите не се съвпадат!!!").equals(req.body.password);
 
-                const userCredentials = req.body;
+//             const errors = req.validationErrors();
 
-                data.users.findByUsername(userCredentials.username)
-                    .then((foundUser) => {
-                        req.logIn(foundUser, (err) => {
-                            if (err) {
-                                console.log('Cant login');
-                                return err;
-                            }
-                            res.redirect('/');
-                        });
-                    });
-            });
-            auth(req, res, next);
-        },
-        logout(req, res) {
-            req.logout();
-            res.redirect('/');
-        },
-        isAuthenticated(req, res, next) {
-            if (!req.isAuthenticated()) {
-                req.session.error = 'You should be logged in to do this! Redirecting to home page. Please log in!';
-                res.redirect('/');
-            } else {
-                return next();
-            }
-        },
-    };
-};
+//             if (errors) {
+//                 req.flash("errors", errors);
+//                 return res.redirect("/profile");
+//             }
+
+//             User.findById(req.user.id, (err, user) => {
+//                 if (err) {
+//                     return next(err);
+//                 }
+//                 user.password = req.body.password;
+//                 user.save((err) => {
+//                     if (err) { return next(err); }
+//                     req.flash("success", { msg: "Паролата ви е сменена!!!" });
+//                     res.redirect("/profile");
+//                 });
+//             });
+//         },
+//         postDeleteAccount(req, res, next) {
+//             User.remove({ _id: req.user.id }, (err) => {
+//                 if (err) {
+//                     return next(err);
+//                 }
+//                 req.logout();
+//                 req.flash("info", { msg: "Вашият акаунт е вече изтрит!!!" });
+//                 res.redirect("/");
+//             });
+//         },
+//     };
+// };

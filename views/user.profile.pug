@@ -1,36 +1,36 @@
-extends layout.pug
-block styles
-    link(rel="stylesheet" href='../public/css/user.profile')
+//- extends layout.pug
+//- block styles
+//-     link(rel="stylesheet" href='../public/css/user.profile')
 
-block main-content
-    .container
-        .row
-            .col-xs-12.col-sm-6.col-md-6.profile-box
-                .well.well-sm
-                    .row
-                        .col-sm-6.col-md-8
-                            h4 Username:  #{loadedUsername.username}
-                            div
-                                i.glyphicon.glyphicon-envelope 
-                                   span #{loadedUsername.email}
-                            br
-                            div
-                                i.glyphicon.glyphicon-user 
-                                    span Full Name: #{loadedUsername.firstName} #{loadedUsername.lastName}
-                            br
-                            div
-                                i.glyphicon.glyphicon-education 
-                                    span User Status: #{loadedUsername.role}
-                            br
-            .col-xs-12.col-sm-6.col-md-6
-                    div
-                        a.btn.btn-info(href= loadedUsername.username + "/posts", title="title") All orders by #{loadedUsername.username}
-                    br
-            .col-xs-12.col-sm-6.col-md-6
-                .well.well-sm
-                    div
-                        i.glyphicon.glyphicon-comment 
-                            span Orders: 
+//- block main-content
+//-     .container
+//-         .row
+//-             .col-xs-12.col-sm-6.col-md-6.profile-box
+//-                 .well.well-sm
+//-                     .row
+//-                         .col-sm-6.col-md-8
+//-                             h4 Username:  #{loadedUsername.username}
+//-                             div
+//-                                 i.glyphicon.glyphicon-envelope 
+//-                                    span #{loadedUsername.email}
+//-                             br
+//-                             div
+//-                                 i.glyphicon.glyphicon-user 
+//-                                     span Full Name: #{loadedUsername.firstName} #{loadedUsername.lastName}
+//-                             br
+//-                             div
+//-                                 i.glyphicon.glyphicon-education 
+//-                                     span User Status: #{loadedUsername.role}
+//-                             br
+//-             .col-xs-12.col-sm-6.col-md-6
+//-                     div
+//-                         a.btn.btn-info(href= loadedUsername.username + "/posts", title="title") All orders by #{loadedUsername.username}
+//-                     br
+//-             .col-xs-12.col-sm-6.col-md-6
+//-                 .well.well-sm
+//-                     div
+//-                         i.glyphicon.glyphicon-comment 
+//-                             span Orders: 
                             
 
 
@@ -38,74 +38,75 @@ block main-content
 
 //-extends layout
 
-//- block content
-//-   .container
-//-     .page-header
-//-       h3 Profile Info
+block content
+  .container
+    .page-header
+      h3 Profile Info
 
-//-       form.form-horizontal(action="/account/profile", method="POST")
-//-             input(type="hidden", name="_csrf", value=_csrf)
-//-             .form-group
-//-               label.col-sm-3.control-label(for="email") Email
-//-               .col-sm-7
-//-                 input.form-control(type="email", name="email", id="email", value=user.email)
-//-             .form-group
-//-               label.col-sm-3.control-label(for="name") Name
-//-               .col-sm-7
-//-                 input.form-control(type="text", name="name", id="name", value=user.profile.name)
-//-             .form-group
-//-               label.col-sm-3.control-label Sex
-//-               .col-sm-6
-//-                 label.radio.col-sm-3
-//-                   input(type="radio", checked=user.profile.gender=="male", name="gender", value="male", data-toggle="radio" class="checkbox")
-//-                   span Male
-//-                 label.radio.col-sm-3
-//-                   input(type="radio", checked=user.profile.gender=="female", name="gender", value="female", data-toggle="radio" class="checkbox")
-//-                   span Female
-//-                 label.radio.col-sm-3
-//-                   input(type="radio", checked=user.profile.gender=="other", name="gender", value="other", data-toggle="radio" class="checkbox")
-//-                   span Undefined :D
-//-             .form-group
-//-               label.col-sm-3.control-label(for="location") Location
-//-               .col-sm-7
-//-                 input.form-control(type="text", name="location", id="location", value=user.profile.location)
-//-             .form-group
-//-               label.col-sm-3.control-label(for="website") Website
-//-               .col-sm-7
-//-                 input.form-control(type="text", name="website", id="website", value=user.profile.website)
-//-             .form-group
-//-               .col-sm-offset-3.col-sm-4
-//-                 button.btn.btn.btn-primary(type="submit")
-//-                   i.fa.fa-pencil
-//-                   | Save changes
+      form.form-horizontal(action="/account/profile", method="POST")
+            input(type="hidden", name="_csrf", value=_csrf)
+            .form-group
+              label.col-sm-3.control-label(for="email") Email
+              .col-sm-7
+                input.form-control(type="email", name="email", id="email", value=user.email)
+            .form-group
+              label.col-sm-3.control-label(for="name") First name
+              .col-sm-7
+                input.form-control(type="text", name="name", id="name", value=user.profile.name)
+            //- .form-group
+            //-   label.col-sm-3.control-label(for="name") Last name
+            //-   .col-sm-7
+            //-     input.form-control(type="text", name="name", id="name", value=user.profile.name)
+            .form-group
+              label.col-sm-3.control-label Sex
+              .col-sm-6
+                label.radio.col-sm-3
+                  input(type="radio", checked=user.profile.gender=="male", name="gender", value="male", data-toggle="radio" class="checkbox")
+                  span Male
+                label.radio.col-sm-3
+                  input(type="radio", checked=user.profile.gender=="female", name="gender", value="female", data-toggle="radio" class="checkbox")
+                  span Female
+                label.radio.col-sm-3
+                  input(type="radio", checked=user.profile.gender=="other", name="gender", value="other", data-toggle="radio" class="checkbox")
+                  span Undefined 
+            .form-group
+              label.col-sm-3.control-label(for="location") Location
+              .col-sm-7
+                input.form-control(type="text", name="location", id="location", value=user.profile.location)
 
-//-     .page-header
-//-       h3 Change your password
+            .form-group
+              .col-sm-offset-3.col-sm-4
+                button.btn.btn.btn-primary(type="submit")
+                  i.fa.fa-pencil
+                  | Save changes
 
-//-     form.form-horizontal(action="/account/password", method="POST")
-//-         input(type="hidden", name="_csrf", value=_csrf)
-//-         .form-group
-//-           label.col-sm-3.control-label(for="password") New password
-//-           .col-sm-7
-//-             input.form-control(type="password", name="password", id="password")
-//-         .form-group
-//-           label.col-sm-3.control-label(for="confirmPassword") Repeat the password
-//-           .col-sm-7
-//-             input.form-control(type="password", name="confirmPassword", id="confirmPassword")
-//-         .form-group
-//-           .col-sm-offset-3.col-sm-4
-//-             button.btn.btn-primary(type="submit")
-//-               i.fa.fa-lock
-//-               | Save password changes
+    .page-header
+      h3 Change your password
 
-//-     .page-header
-//-       h3 Delete account
+    form.form-horizontal(action="/account/password", method="POST")
+        input(type="hidden", name="_csrf", value=_csrf)
+        .form-group
+          label.col-sm-3.control-label(for="password") New password
+          .col-sm-7
+            input.form-control(type="password", name="password", id="password")
+        .form-group
+          label.col-sm-3.control-label(for="confirmPassword") Repeat the password
+          .col-sm-7
+            input.form-control(type="password", name="confirmPassword", id="confirmPassword")
+        .form-group
+          .col-sm-offset-3.col-sm-4
+            button.btn.btn-primary(type="submit")
+              i.fa.fa-lock
+              | Save password changes
 
-//-     form.form-horizontal(action="/account/delete", method="POST")
-//-       .form-group
-//-         p.col-sm-offset-3.col-sm-4 Можете да си изтриете акаунта, но имайте в предвид че е необратимо!!!
-//-         input(type="hidden", name="_csrf", value=_csrf)
-//-         .col-sm-offset-3.col-sm-4
-//-           button.btn.btn-danger(type="submit")
-//-             i.fa.fa-trash
-//-             | Изтрий моят акаунт
+    .page-header
+      h3 Delete account
+
+    form.form-horizontal(action="/account/delete", method="POST")
+      .form-group
+        p.col-sm-offset-3.col-sm-4 Your account and personal information will be deleted
+        input(type="hidden", name="_csrf", value=_csrf)
+        .col-sm-offset-3.col-sm-4
+          button.btn.btn-danger(type="submit")
+            i.fa.fa-trash
+            | Delete account
