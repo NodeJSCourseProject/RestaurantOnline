@@ -17,6 +17,8 @@ const attachTo = (app, data) => {
             return controller.getForm(req, res);
         })
         .get('/:_id', (req, res) => {
+            console.log('req.params:');
+            console.log(req.params);
             // if (!req.user) {
             //     return Promise.resolve()
             //         .then(() => {

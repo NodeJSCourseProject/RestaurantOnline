@@ -7,8 +7,8 @@ class CategorysController {
         return this.data.categorys.getAll()
             .then((categories) => {
                 //const names = categories.map(cat=>cat.name);
-                console.log('-*-');
-                console.log(categories);
+                // console.log('-*-');
+                // console.log(categories);
                 return res.render('categorys', {
                     context: categories,
                 });

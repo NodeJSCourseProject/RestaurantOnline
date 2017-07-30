@@ -7,12 +7,15 @@ class CategorysData extends BaseData {
     }
 
     getCategoryMeals(_id) {
-        return super.findById(_id)
+        return this.findById(_id)
             .then((category) => {
-                meals = category.meals;
+                const meals = category.meals;
+                // console.log('promise meals1: ');
+                // console.log(meals);
+
                 return meals;
             });
-            return meals;
+        return meals;
     }
 
     _isModelValid(model) {

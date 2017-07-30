@@ -4,11 +4,13 @@ class MealsController {
     }
 
     getAll(req, res) {
-        const categoryId = req.query._id;
-        const meals = this.data.categorys.getCategoryMeals(categoryId);
-        return res.render('meals/all', {
-            context: meals || [],
-        });
+        const categoryId = req.params._id.slice(1);
+        return this.data.categorys.getCategoryMeals(categoryId)
+            .then((meals) => {
+                return res.render('meals/all', {
+                    context: meals || [],
+                });
+            });
     }
 
     getForm(req, res) {
