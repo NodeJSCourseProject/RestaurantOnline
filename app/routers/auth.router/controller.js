@@ -7,7 +7,7 @@ class AuthController {
         return res.render('auth/sign-up');
     }
     getSignInForm(req, res) {
-        console.log('proper form');
+        // console.log('proper form');
         return res.render('auth/sign-in');
     }
     signOut(req, res) {
@@ -27,7 +27,7 @@ class AuthController {
                 return this.data.users.create(bodyUser);
             })
             .then((dbUser) => {
-                return res.redirect('sign-in');
+                return res.redirect('home');
             })
             .catch((err) => {
                 req.flash('error', err);

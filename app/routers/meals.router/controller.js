@@ -4,8 +4,10 @@ class MealsController {
     }
 
     getAll(req, res) {
+        const categoryId = req.query._id;
+        const meals = this.data.categorys.getCategoryMeals(categoryId);
         return res.render('meals/all', {
-            context: req.user.meals || [],
+            context: meals || [],
         });
     }
 
@@ -53,9 +55,9 @@ class MealsController {
                     name: dbCategory.name,
                 };
 
-                console.log('***');
-                console.log(dbMeal);
-                console.log(dbCategory);
+                // console.log('***');
+                // console.log(dbMeal);
+                // console.log(dbCategory);
 
                 //user.todos = user.todos || [];
                 // user.todos.push({
@@ -66,8 +68,8 @@ class MealsController {
                 // });
 
                 return Promise.all([
-                    this.data.meals.updateById(dbMeals),
-                    this.data.categories.updateById(dbCategory),
+                    this.data.meals.updateById(dbMeal),
+                    this.data.categorys.updateById(dbCategory),
                     //this.data.users.updateById(user),
                 ]);
             })
@@ -76,6 +78,8 @@ class MealsController {
                 return res.redirect('/');
             })
             .catch((err) => {
+                // console.log('err:');
+                // console.log(err);
                 req.flash('error', err);
                 return res.redirect('/meals/form');
             });

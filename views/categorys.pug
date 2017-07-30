@@ -1,0 +1,8 @@
+extends home
+block categorys
+    nav.nav
+        ul.list.list-horizontal
+            each category in context.items
+                 li.list-item
+                    a.nav-btn(href="/meals/:"+category._id)
+                         =category.name

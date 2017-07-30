@@ -1,0 +1,26 @@
+extends ../home
+block content
+    if context.length        
+        each meal in context
+            div.row
+                div.col-sm-6.col-md-4
+                    div.thumbnail
+                        //- img
+                        form(action="orders/add/:"+meal._id+"/:"+quantity method="POST")
+                        h3
+                            =meal.name
+                        p
+                            =meal.descripption
+                        p
+                            | Weight:
+                            =meal.Weight
+                        p
+                            | Price:
+                            = meal.price
+                        input(type="number" name="quantity" min="1")
+                        button.btn.btn-success
+                        | Add
+    else
+        p
+            | No Meals yet...
+

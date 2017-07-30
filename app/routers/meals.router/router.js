@@ -5,7 +5,18 @@ const attachTo = (app, data) => {
     const controller = require('./controller').init(data);
 
     router
-        .get('/', (req, res) => {
+        .get('/form', (req, res) => {
+            //console.log(req.user);
+            if (!req.user) {
+                return Promise.resolve()
+                    .then(() => {
+                        res.redirect('/auth/sign-in');
+                    });
+            }
+
+            return controller.getForm(req, res);
+        })
+        .get('/:_id', (req, res) => {
             // if (!req.user) {
             //     return Promise.resolve()
             //         .then(() => {
@@ -19,19 +30,9 @@ const attachTo = (app, data) => {
             // }
             return controller.getAll(req, res);
         })
-        .get('/form', (req, res) => {
-            console.log(req.user);
-            if (!req.user) {
-                return Promise.resolve()
-                    .then(() => {
-                        res.redirect('/auth/sign-in');
-                    });
-            }
-
-            return controller.getForm(req, res);
-        })
         .post('/form', (req, res) => {
-            console.log(req.user);
+            console.log('post info---')
+            console.log(req.body);
             if (!req.user) {
                 return Promise.resolve()
                     .then(() => {

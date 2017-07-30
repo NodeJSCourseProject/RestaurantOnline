@@ -1,5 +1,7 @@
 class Category {
     static isValid(model) {
+        // console.log('+++C');
+        // console.log(model);
         return typeof model !== 'undefined' &&
             typeof model.name === 'string' &&
             model.name.length >= 1; 

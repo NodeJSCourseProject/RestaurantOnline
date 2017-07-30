@@ -31,7 +31,7 @@ const init = (data) => {
 
     app.get('/home', (req, res) => {
         console.log('TEST loaded');
-        res.render('landing');
+        res.render('home');
     });
 
     app.get('/menu', (req, res) => {

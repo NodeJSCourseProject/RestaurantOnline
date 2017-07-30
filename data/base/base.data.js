@@ -29,8 +29,6 @@ class BaseData {
     }
 
     create(model) {
-        console.log('---');
-        console.log(model);
         if (!this._isModelValid(model)) {
             return Promise.reject('Validation failed!');
         }
@@ -47,6 +45,8 @@ class BaseData {
     }
 
     findOrCreateBy(props) {
+        console.log('---');
+        console.log(props);
         return this.filterBy(props)
             .then(([model]) => {
                 if (!model) {
@@ -56,12 +56,15 @@ class BaseData {
                             return model;
                         });
                 }
+                // console.log(model);
 
                 return model;
             });
     }
 
     updateById(model) {
+        console.log('++++');
+        console.log(model);
         return this.collection.updateOne({
             _id: model._id,
         }, model);

@@ -1,13 +1,13 @@
 block head
     script(src="https://rawgit.com/bassjobsen/Bootstrap-3-Typeahead/master/bootstrap3-typeahead.js")
-    link(rel="stylesheet", href="/libs/typeahead/style.css")
+    //- link(rel="stylesheet", href="/libs/typeahead/style.css")
     script(src="/static/js/categories.js")
 
 block body
     != messages()
 
-    form(action="/meals/form" method="POST")
-        label(for='category') Category
+    form(action="/meals/form" method="POST" )
+        label(for='category')  
         input.form-control#autocomplete(name="category" minlength = "1")
         br
         label(for='name') Meal name

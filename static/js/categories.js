@@ -1,5 +1,5 @@
 $(function () {
-    fetch('/api/categories')
+    fetch('/categorys')
         .then((res) => {
             return res.json();
         })
