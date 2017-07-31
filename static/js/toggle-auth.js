@@ -27,16 +27,3 @@ toggleToLogin.click(() => {
     $("#login").toggle(); 
     $("#register").hide();
 });
-
-// $("#register").hide();
-// .hide();
-
-// $("#login").click(() => {
-//     $("#login").toggle(); 
-//     $("#register").hide();
-// });
-
-// $('#register').click(() => {
-//     $("#register").toggle(); 
-//     $("#login").hide();
-// });
