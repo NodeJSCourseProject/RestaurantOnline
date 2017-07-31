@@ -1,28 +1,39 @@
 'use strict';
 
 class PageController {
-    constructor() {
-        this._viewPath = '../../../views/';
-    }
-
     getHome (req, res) {
-        return res.render('home');
+        return Promise.resolve()
+            .then(() => {
+                res.render('home');
+            });
     }
 
     getMenu (req, res) {
-        return res.render('menu');
+        return Promise.resolve()
+            .then(() => {
+                res.render('menu');
+            });
     }
 
     getMenuForms (req, res) {
-        return res.render('menu');
+        return Promise.resolve()
+            .then(() => {
+                res.render('menu');
+            });
     }
 
     getOrders (req, res) {
-        return res.render('orders');
+        return Promise.resolve()
+            .then(() => {
+                res.render('orders');
+            });
     }
 
     getProfile (req, res) {
-        return res.render('user.profile.pug');
+        return Promise.resolve()
+            .then(() => {
+                res.render('user.profile.pug');
+            });
     }
 }
 
