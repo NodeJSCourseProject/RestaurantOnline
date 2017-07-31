@@ -13,13 +13,16 @@ body
     nav
         ul
             li.menu
+                a(href="/home") Home
+            li.menu
                 a(href="/reservations") Reservations
             li.menu
                 a(href="/categorys") Menu
             li.menu
                 a(href="/about") About
-            li.menu
-                a(href="/profile") Profile
+            if user
+                li.menu
+                    a(href="/profile") Profile
             block shoppingcartbutton
             if user
                 li.auth(id="logoutNav")
