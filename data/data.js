@@ -1,4 +1,3 @@
-const MealsData = require('./meals.data');
 // file za mazane
 class Restaurant {
 
@@ -7,11 +6,10 @@ class Restaurant {
 class Users{
 
 }
-//const ItemsData = require('./items.data');
-//const CategoriesData = require('./categories.data');
-//const TodosData = require('./todos.data');
 const UsersData = require('./users.data');
 const CategorysData = require('./categorys.data');
+const MealsData = require('./meals.data');
+const OrdersData = require('./orders.data');
 
 //module.exports = { init };
 // class Data {
@@ -48,6 +46,7 @@ const init = (db) => {
         // users: new Data(db,User),
         users: new UsersData(db),
         categorys: new CategorysData(db),
+        orders: new OrdersData(db),
 
     });
 };
