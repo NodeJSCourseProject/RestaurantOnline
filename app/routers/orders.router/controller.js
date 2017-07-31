@@ -27,7 +27,8 @@ class OrdersController {
 
         return this.data.users.findById(user._id)
             .then(async (user) => {
-                const order = JSON.parse(JSON.stringify(user.shoppingCart));
+                const order = {};
+                order.items = JSON.parse(JSON.stringify(user.shoppingCart));
                 order.deliveryAddress = req.body.deliveryAddress;
                 user.shoppingCart = [];
                 user.orders = user.orders || [];
