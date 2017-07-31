@@ -20,6 +20,9 @@ body
                 a(href="/about") About
             li.menu
                 a(href="/profile") Profile
+            block shoppingcartbutton
+            li.auth
+                a(href="/auth/sign-out" id="loginNav" ) Log out
             li.auth
                 a(href="#login" id="loginNav" onclick='$("#login").toggle(); $("#register").hide();') Log in
             li.auth

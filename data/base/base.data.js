@@ -36,8 +36,6 @@ class BaseData {
     }
 
     findById(id) {
-        // console.log('findbyid:');
-        // console.log(this.collection);
         return this.collection.findOne({
             _id: new ObjectID(id),
         });

@@ -1,6 +1,6 @@
 class User {
     static isValid(model) {
-         return typeof model !== 'undefined' &&
+        return typeof model !== 'undefined' &&
             typeof model.username === 'string' &&
             model.username.length > 4;
     }
@@ -19,20 +19,22 @@ class User {
 
         return viewModel;
     }
+
     createUser() {
-            return new User()
-                .then(user => {
-                    user.save(err => {
-                        if (err) {
-                            return err;
-                        }
-                        return user;
-                    });
-                })
-                .catch(err => {
-                    return err;
+        return new User()
+            .then(user => {
+                user.save(err => {
+                    if (err) {
+                        return err;
+                    }
+                    return user;
                 });
-        }
+            })
+            .catch(err => {
+                return err;
+            });
+    }
+
     getUserById(id) {
         return new Promise((resolve, reject) => {
             User.findOne({

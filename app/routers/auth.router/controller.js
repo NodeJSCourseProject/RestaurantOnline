@@ -17,7 +17,8 @@ class AuthController {
 
     signUp(req, res) {
         const bodyUser = req.body;
-
+        bodyUser.shoppingCart = [];
+        
         this.data.users.findByUsername(bodyUser.username)
             .then((dbUser) => {
                 if (dbUser) {
