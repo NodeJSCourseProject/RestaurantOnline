@@ -23,47 +23,7 @@ const init = (data) => {
 
     require('./routers')
         .attachTo(app, data);
-
-
-    app.get('/', (req, res) => {
-        res.redirect('/home');
-    });
-
-    app.get('/home', (req, res) => {
-        console.log('TEST loaded');
-        res.render('home');
-    });
-
-    app.get('/menu', (req, res) => {
-        console.log('Menu loaded');
-        res.render('menu'); // relative route, no need for ./all
-        // res.render('./page.not.found')
-    });
-
-    app.get('/menu/forms', (req, res) => {
-        res.render('menu'); // relative route, no need for ./all
-        // res.render('./page.not.found')
-    });
-
-    app.get('/orders', (req, res) => {
-        console.log('Orders loaded');
-        res.render('orders');
-    });
-
-    app.get('/profile', (req, res) => {
-        console.log('Your profile');
-        res.render('../views/user.profile.pug');
-    });
-
-    app.get('/register', (req, res) => {
-        console.log('reg');
-        res.render('../views/main/register.pug');
-    });
-
-    app.get('/login', (req, res) => {
-        console.log('login');
-        res.render('layout');
-    });
+    
     return Promise.resolve(app);
 };
 

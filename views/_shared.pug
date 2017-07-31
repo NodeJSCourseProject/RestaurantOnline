@@ -22,12 +22,11 @@ body
                 a(href="/profile") Profile
             block shoppingcartbutton
             li.auth
-                a(href="/auth/sign-out" id="loginNav" ) Log out
-            li.auth
-                a(href="#login" id="loginNav" onclick='$("#login").toggle(); $("#register").hide();') Log in
-            li.auth
-                a(href="#register" id="loginNav" onclick='$("#register").toggle(); $("#login").hide();') Register
-        block categorys
+                a(href="/auth/sign-out") Log out
+            li.auth(id="loginNav")
+                a(href="#login") Log in
+            li.auth(id="registerNav")
+                a(href="#register") Register
     header
     if user
         section(id="signout")
@@ -50,8 +49,8 @@ body
                         input(type="submit" name="register" value="register" tabindex='6')
                         p.message
                             | Already registered? 
-                            a(href="#signin" onclick='$("#login").toggle(); $("#register").hide();')
-                                | Sign In
+                            a(href="#login" id="toggleToLogin")
+                                | Log In
         section(id="login")
             div(class="login-form login-page" id="login")
                 div(class="form")
@@ -61,7 +60,7 @@ body
                         input(type="submit" name="login" value="login" tabindex='4')       
                         p.message
                             | Not registered? 
-                            a(href="#register" onclick='$("#register").toggle(); $("#login").hide();')
+                            a(href="#register" id="toggleToRegister")
                                 |Create an account
         //- !=messages()
     block content
@@ -87,8 +86,7 @@ body
             br
             strong
                 | Copyright © 2017 — MDB
-    script 
-        | $("#register").hide(); $("#login").hide();
+    script(src="/static/js/toggle-auth.js")
 
         //- ul.nav.navbar-nav.navbar-right
         //-     if currentUser
