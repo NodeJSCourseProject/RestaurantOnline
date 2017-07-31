@@ -46,6 +46,8 @@ nav li a:hover {
 nav li a:active {
     background-color: #111;
     border-bottom: 5px solid #111;
+    text-decoration: none;
+    color: #C09A68;
 }
 
 header {
