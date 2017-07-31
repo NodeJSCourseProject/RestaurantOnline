@@ -80,7 +80,7 @@ footer {
     color: #C09A68;
     background-color: #333;
     text-align: center;
-    max-height: 150px;
+    min-height: 160px;
 }
 
 /* Login and Register*/
