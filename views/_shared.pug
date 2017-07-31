@@ -10,10 +10,10 @@ head
     title 
         | MDB | Home page
 body
-    nav
+    nav.nav
         ul
             li.menu
-                a(href="/reservations") Reservations
+                a(href="/home") Home
             li.menu
                 a(href="/categorys") Menu
             li.menu
@@ -27,6 +27,7 @@ body
                 a(href="#login" id="loginNav" onclick='$("#login").toggle(); $("#register").hide();') Log in
             li.auth
                 a(href="#register" id="loginNav" onclick='$("#register").toggle(); $("#login").hide();') Register
+        block categorys
     header
     if user
         section(id="signout")
@@ -62,8 +63,7 @@ body
                             | Not registered? 
                             a(href="#register" onclick='$("#register").toggle(); $("#login").hide();')
                                 |Create an account
-    //- !=messages()
-    block categorys
+        //- !=messages()
     block content
 
     footer
