@@ -1,0 +1,17 @@
+extends ../_shared
+block content
+    h2 Please confirm your order:
+    each item in context
+        ul.list.list-group
+            li.list-group-item
+                span
+                    =item.meal.name
+                span - 
+                span
+                    =item.quantity
+    form(action="/orders/form" method="POST" )
+        label(for='deliveryAddress') Delivery address
+        input.form-control(name="deliveryAddress" required type="text" placeholder="Enter delivery address" minlength = "1")
+        br
+        button.btn.btn-success
+            | Save

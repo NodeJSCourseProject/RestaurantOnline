@@ -3,20 +3,25 @@ class ShoppingCartsController {
         this.data = data;
     }
 
-    getAll(req, res) {
-        const categoryId = req.params._id.slice(1);
-        return this.data.categorys.getCategoryMeals(categoryId)
-            .then((meals) => {
-                return res.render('meals/all', {
-                    context: meals || [],
-                });
-            });
-    }
+    // getAll(req, res) {
+    //     const categoryId = req.params._id.slice(1);
+    //     return this.data.categorys.getCategoryMeals(categoryId)
+    //         .then((meals) => {
+    //             return res.render('meals/all', {
+    //                 context: meals || [],
+    //             });
+    //         });
+    // }
 
     getForm(req, res) {
-        return Promise.resolve()
-            .then(() => {
-                return res.render('/shoppingcart/form');
+        const _id = req.user._id;
+        return this.data.users.findById(_id)
+            .then((user) => {
+                console.log('shopping cart:');
+                console.log(user.shoppingCart);
+                return res.render('shoppingcart/form', {
+                    context: user.shoppingCart,
+                });
             });
     }
 
