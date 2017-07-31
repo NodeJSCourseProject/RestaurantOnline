@@ -1,24 +1,4 @@
 "use strict";
-
-// const express = require("express");
-
-// let Router = express.Router;
-
-// module.exports = function({ app, data }) {
-//     let controller = require("../../controlers/users.controler")(data);
-
-//     let router = new Router();
-
-//     router
-//         //.get("/:id/myrecipes", controller.allAddedRecipes)
-//         //.get("/:id/favorites", controller.allFavoritesRecipes)
-//         .post("/:id", controller.addToFavorites);
-
-//     app.use("/profile", router);
-
-//     return router;
-// };
-
 const { Router } = require('express');
 const passport = require('passport');
 
