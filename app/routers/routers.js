@@ -5,7 +5,7 @@ const path = require('path');
 
 const attachTo = (app, data) => {
     app.get('/', (req, res) => {
-        return res.render('home');
+        return res.redirect('/home');
     });
 
     fs.readdirSync(__dirname)
