@@ -21,47 +21,40 @@ body
             li.menu
                 a(href="/profile") Profile
             block shoppingcartbutton
-            li.auth
-                a(href="/auth/sign-out") Log out
-            li.auth(id="loginNav")
-                a(href="#login") Log in
-            li.auth(id="registerNav")
-                a(href="#register") Register
+            if user
+                li.auth(id="logoutNav")
+                    a(href="/auth/sign-out") Log out
+            else
+                li.auth(id="loginNav")
+                    a(href="#login") Log in
+                li.auth(id="registerNav")
+                    a(href="#register") Register
     header
-    if user
-        section(id="signout")
-            div(class="signout-form signout-page" id="signout")
-                div(class="form")
-                    form(action='/auth/sign-out', method='post', role='form', autocomplete='off') 
-                        p.message
-                            a(href="#signout" onclick='$("#signout").toggle(); $("#signout").hide();')
-                                |Sign out
-    else
-        section(id="register")
-            div(class="register-form login-page" id="register")
-                div.form
-                    form(action='/auth/sign-up', method='post', role='form', autocomplete='on')
-                        input(type="text" name="username" placeholder="username" tabindex='1')
-                        input(type="password" name="password" placeholder="password" tabindex='2')
-                        input(type="text" name="email" placeholder="email address" tabindex='3')
-                        input(type="text" name="firstName" placeholder="first name" tabindex='4')
-                        input(type="text" name="lastName" placeholder="last name" tabindex='5')
-                        input(type="submit" name="register" value="register" tabindex='6')
-                        p.message
-                            | Already registered? 
-                            a(href="#login" id="toggleToLogin")
-                                | Log In
-        section(id="login")
-            div(class="login-form login-page" id="login")
-                div(class="form")
-                    form(action='/auth/sign-in', method='post', role='form', autocomplete='off')
-                        input(type="text" name="username" placeholder="username" tabindex='1')
-                        input(type="password" name="password" placeholder="password" tabindex='2')                                
-                        input(type="submit" name="login" value="login" tabindex='4')       
-                        p.message
-                            | Not registered? 
-                            a(href="#register" id="toggleToRegister")
-                                |Create an account
+    section(id="register")
+        div(class="register-form login-page" id="register")
+            div.form
+                form(action='/auth/sign-up', method='post', role='form', autocomplete='on')
+                    input(type="text" name="username" placeholder="username" tabindex='1')
+                    input(type="password" name="password" placeholder="password" tabindex='2')
+                    input(type="text" name="email" placeholder="email address" tabindex='3')
+                    input(type="text" name="firstName" placeholder="first name" tabindex='4')
+                    input(type="text" name="lastName" placeholder="last name" tabindex='5')
+                    input(type="submit" name="register" value="register" tabindex='6')
+                    p.message
+                        | Already registered? 
+                        a(href="#login" id="toggleToLogin")
+                            | Log In
+    section(id="login")
+        div(class="login-form login-page" id="login")
+            div(class="form")
+                form(action='/auth/sign-in', method='post', role='form', autocomplete='off')
+                    input(type="text" name="username" placeholder="username" tabindex='1')
+                    input(type="password" name="password" placeholder="password" tabindex='2')                                
+                    input(type="submit" name="login" value="login" tabindex='4')       
+                    p.message
+                        | Not registered? 
+                        a(href="#register" id="toggleToRegister")
+                            |Create an account
     //- !=messages()
     block categorys
     block content
@@ -87,6 +80,7 @@ body
             br
             strong
                 | Copyright © 2017 — MDB
+                
     script(src="/static/js/toggle-auth.js")
 
         //- ul.nav.navbar-nav.navbar-right
