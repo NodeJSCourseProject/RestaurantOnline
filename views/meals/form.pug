@@ -2,13 +2,13 @@ extends ../_shared
 //- block head
 //-     //- script(src="https://rawgit.com/bassjobsen/Bootstrap-3-Typeahead/master/bootstrap3-typeahead.js")
 //-     //- link(rel="stylesheet", href="/libs/typeahead/style.css")
-//-     script(src="/static/js/categories.js")
 
 block content
     != messages()
 
     form.form-group(action="/meals/form" method="POST" )
-        label(for='category')  
+        h3 Input a new meal
+        label(for='category')  Category
         input.form-control#autocomplete(name="category" minlength = "1")
         br
         label(for='name') Meal name
