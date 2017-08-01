@@ -87,8 +87,7 @@ class UsersController {
             .catch((err) => {
                 req.flash('error', err.message);
                 res.redirect(req.get('referer'));
-            })
-        };
+            });
     }
 }
 
