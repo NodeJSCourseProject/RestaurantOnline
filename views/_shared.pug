@@ -1,4 +1,5 @@
-- var admin = user.admin
+if user
+    - var admin = user.admin
 <!DOCTYPE html>
 html(lang="en")
 head
@@ -8,9 +9,10 @@ head
     script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js")
     script(src="/static/js/categories.js")
     style
-        include ../public/css/landing.css
+        include ../public/css/menu.css
+        include ../public/css/landing.css        
     title 
-        | MDB | Home page
+        | MDB | Online Restaurant
 body
     nav.nav
         ul
@@ -18,14 +20,14 @@ body
                 a(href="/home") Home
             li.menu
                 a(href="/categorys") Menu
-            li.menu
-                a(href="/about") About
             if admin
                 li.menu
                     a(href="/meals/form") Meals Input
             if user
                 li.menu
                     a(href="/profile") Profile
+            li.menu
+                a(href="/menu") Search
             if user
                 li.menu
                     a(href="/shoppingcart/form") Shopping Cart
@@ -37,7 +39,7 @@ body
                     a(href="#login") Log in
                 li.auth(id="registerNav")
                     a(href="#register") Register
-    header
+    header    
     section(id="register")
         div(class="register-form login-page" id="register")
             div.form

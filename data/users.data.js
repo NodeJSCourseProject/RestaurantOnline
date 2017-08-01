@@ -8,7 +8,8 @@ class UsersData extends BaseData {
 
     findByUsername(username) {
         //console.log("**", this);
-        return this.filterBy({ username: new RegExp(username, 'i') })
+        return this
+            .filterBy({ username: new RegExp(username, 'i') })
             .then(([user]) => user);
     }
 
@@ -33,11 +34,17 @@ class UsersData extends BaseData {
                 if (!user) {
                     throw new Error('Invalid user');
                 }
-
-                user.shoppingCart.push({
-                    meal: meal,
-                    quantity: quantity,
-                });
+                const mealIndexInShoppingCart = user.shoppingCart.findIndex(x => x.meal.name === meal.name);
+                quantity = Number(quantity);
+                if (mealIndexInShoppingCart < 0) {
+                    user.shoppingCart.push({
+                        meal: meal,
+                        quantity: quantity,
+                    });
+                }
+                else {
+                    user.shoppingCart[mealIndexInShoppingCart].quantity += quantity;
+                }
 
                 this.updateById(user);
             });

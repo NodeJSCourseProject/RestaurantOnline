@@ -1,5 +1,35 @@
-
-
+extends _shared
+block content
+    div.naming
+        p MDB
+    section#container
+        div#search
+            form(action='/menu/search', method='get')
+                input(type="text" name="search" placeholder="Search for a meal")
+                br
+                input(type="submit" value="Search")
+        div#result
+            if meals
+                each meal in meals
+                    div.meal
+                        img(src="/static/images/pasta.jpeg" alt="meal")
+                        div.description                    
+                            h4 #{meal.name}
+                            p 
+                                strong Price: 
+                                | $#{meal.price}
+                            p 
+                                strong Weith: 
+                                | #{meal.weigth} g
+                            p 
+                                strong Category: 
+                                | #{meal.category}
+                            p 
+                                strong Description: 
+                                x| #{meal.description}
+                            form(action='/order', method='post')
+                                input(type="hidden" name="order" value="pasta" id="")
+                                input(type="submit" value="Order")
 
 
             //- li

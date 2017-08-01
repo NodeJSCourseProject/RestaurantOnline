@@ -17,25 +17,50 @@ class ShoppingCartsController {
         const _id = req.user._id;
         return this.data.users.findById(_id)
             .then((user) => {
-                console.log('shopping cart:');
-                console.log(user.shoppingCart);
+                // console.log('shopping cart:');
+                // console.log(user.shoppingCart);
                 return res.render('shoppingcart/form', {
                     context: user.shoppingCart,
                 });
             });
     }
 
+    // getShoppingCart(req, res) {
+    //     const _id = req.user._id;
+    //     return this.data.users.findById(_id)
+    //         .then((user) => {
+    //             return user.shoppingCart;
+    //         });
+
+    // }
+
     addMeals(req, res) {
         const user = req.user;
         const id = req.params._id.slice(1);
+        //const shoppingCart = this.getShoppingCart(req, res);
 
         return this.data.meals.findById(id)
-            .then((meal)=>{
+            .then((meal) => {
                 this.data.users.addMealsToShoppingCart(user.username, meal, req.body.quantity);
             })
-            .then(()=>{
-                return res.render('shoppingcart/button');
+            .then(() => {
+                return res.render('/home');     //TODO:
             });
+    }
+
+    eraseAll(req, res) {
+        return this.data.users.findById(req.user._id)
+            .then((user) => {
+                user.shoppingCart = [];
+                return user;
+            })
+            .then(async (user) => {
+                await this.data.users.updateById(user);
+            })
+            .then(() => {
+                return res.render('/');     //TODO:
+            });
+
     }
 
     // create(req, res) {
