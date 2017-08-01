@@ -44,7 +44,7 @@ class ShoppingCartsController {
                 this.data.users.addMealsToShoppingCart(user.username, meal, req.body.quantity);
             })
             .then(() => {
-                return res.render('/home');     //TODO:
+                return res.render('home');     //TODO:
             });
     }
 
