@@ -40,10 +40,7 @@ class User {
     }
 
     getUserById(id, req, res) {
-        return Promise.resolve()
-            .then(() => {             
-                return this.data.users.find({ _id: req.user.id });
-            })
+        return this.data.users.findById(id);
     }
 }
 

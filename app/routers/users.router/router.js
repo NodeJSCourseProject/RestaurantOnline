@@ -7,18 +7,18 @@ const attachTo = (app, data) => {
     const controller = require('./controller').init(data);
 
     router
-        .get('/', (req, res) => {
-            return controller.getAccount(req, res);
-        })
-        .post('/profile', (req, res) => {
+        // .get('/', (req, res) => {
+        //     return controller.getAccount(req, res);
+        // })
+        .post('/', (req, res) => {
             return controller.postUpdateProfile(req, res);
         })
-        .post('/', (req, res) => {
-            return controller.postUpdatePassword(req, res);
-        })
-        .post('/', (req, res) => {
-            return controller.postDeleteAccount(req, res);
-        })
+        // .post('/', (req, res) => {
+        //     return controller.postUpdatePassword(req, res);
+        // })
+        // .post('/', (req, res) => {
+        //     return controller.postDeleteAccount(req, res);
+        // })
         .post('/sign-in', passport.authenticate('local', {
             successRedirect: '/meals/form',
             failureRedirect: '/auth/sign-up',

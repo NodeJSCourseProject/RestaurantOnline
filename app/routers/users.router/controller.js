@@ -30,17 +30,18 @@ class UsersController {
         // }
         //User.findById(req.user.id, (err, user) => {
         //db.getCollection('users').find({})
-
-        return User.getUserById(req, res)
-            .then(() => {
+        const id = req.user._id;
+        return User.getUserById(id, req, res)
+            .then((result) => {
+                let user = result;
                 if (!user) {
                     throw Error('Invalid user');
                 }
 
                 user.email = req.body.email || '';
-                user.profile.name = req.body.name || '';
+                user.username = req.body.name || '';
 
-                return this.data.users.update({ _id: req.user.id }, user);
+                return this.data.users.updateById(user);
             })
             .then((user) => {
                 req.flash('success', { msg: 'Your profile information is changed' });
