@@ -9,16 +9,17 @@ head
     script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js")
     script(src="/static/js/categories.js")
     style
-        include ../public/css/landing.css
+        include ../public/css/menu.css
+        include ../public/css/landing.css        
     title 
-        | MDB | Home page
+        | MDB | Online Restaurant
 body
     nav.nav
         ul
             li.menu
                 a(href="/home") Home
             li.menu
-                a(href="/categorys") Menu
+                a(href="/menu") Menu
             li.menu
                 a(href="/about") About
             if admin
@@ -38,7 +39,7 @@ body
                     a(href="#login") Log in
                 li.auth(id="registerNav")
                     a(href="#register") Register
-    header
+    header    
     section(id="register")
         div(class="register-form login-page" id="register")
             div.form
