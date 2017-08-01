@@ -25,18 +25,18 @@ class ShoppingCartsController {
             });
     }
 
-    // addMeals(req, res) {
-    //     const user = req.user;
-    //     const id = req.params._id.slice(1);
+    addMeals(req, res) {
+        const user = req.user;
+        const id = req.params._id.slice(1);
 
-    //     return this.data.meals.findById(id)
-    //         .then((meal)=>{
-    //             this.data.users.addMealsToShoppingCart(user.username, meal, req.body.quantity);
-    //         })
-    //         .then(()=>{
-    //             return res.render('shoppingcart/button');
-    //         });
-    // }
+        return this.data.meals.findById(id)
+            .then((meal)=>{
+                this.data.users.addMealsToShoppingCart(user.username, meal, req.body.quantity);
+            })
+            .then(()=>{
+                return res.render('shoppingcart/button');
+            });
+    }
 
     // create(req, res) {
     //     const meal = req.body;
