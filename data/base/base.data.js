@@ -28,11 +28,21 @@ class BaseData {
             });
     }
 
+    // create(model) {
+    //     if (!this._isModelValid(model)) {
+    //         return Promise.reject('Validation failed!');
+    //     }
+    //     return this.collection.insert(model);
+    // }
+
     create(model) {
         if (!this._isModelValid(model)) {
             return Promise.reject('Validation failed!');
         }
-        return this.collection.insert(model);
+        return this.collection.insert(model)
+            .then(() => {
+                return model;
+            });
     }
 
     findById(id) {
@@ -42,8 +52,8 @@ class BaseData {
     }
 
     findOrCreateBy(props) {
-        console.log('---');
-        console.log(props);
+        // console.log('---');
+        // console.log(props);
         return this.filterBy(props)
             .then(([model]) => {
                 if (!model) {

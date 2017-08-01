@@ -41,25 +41,31 @@ class MealsController {
                 this.data.categorys.findOrCreateBy(category),
             ])
             .then(([dbMeal, dbCategory]) => {
+                console.log('***');
+                console.log('dbMeal:');
+                console.log(dbMeal);
                 dbCategory.name = meal.category;
                 dbCategory.meals = dbCategory.meals || [];
-                dbCategory.meals.push({
-                    _id: dbMeal._id,
-                    name: dbMeal.name,
-                    description: dbMeal.description,
-                    weight: dbMeal.weight,
-                    price: dbMeal.price,
-                    picture: dbMeal.picture,
-                });
+                const meal1 = {};
+                meal1._id = dbMeal.ops[0]._id;
+                meal1.name = dbMeal.ops[0].name;
+                meal1.description = dbMeal.ops[0].description;
+                meal1.weight = dbMeal.ops[0].weight;
+                meal1.price = dbMeal.ops[0].price;
+                meal1.picture = dbMeal.ops[0].picture;
+                
+                dbCategory.meals.push(
+                    meal1
+
+                );
 
                 dbMeal.category = {
                     _id: dbCategory._id,
                     name: dbCategory.name,
                 };
 
-                // console.log('***');
-                // console.log(dbMeal);
-                // console.log(dbCategory);
+                console.log('dbCat:');
+                console.log(dbCategory);
 
                 //user.todos = user.todos || [];
                 // user.todos.push({
