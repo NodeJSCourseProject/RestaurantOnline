@@ -29,6 +29,7 @@
     "express-messages": "^1.0.1",
     "express-session": "^1.15.4",
     "express-sessions": "^1.0.6",
+    "express-validator": "^3.2.1",
     "expressjs": "^1.0.1",
     "fs": "^0.0.1-security",
     "isomorphic-fetch": "^2.2.1",

@@ -7,10 +7,14 @@ const attachTo = (app, data) => {
     const controller = require('./controller').init(data);
 
     router
+        .post('/',(req,res)=>{
+            return controller.postUpdateProfile(req,res);
+        })
         .get('/:id', (req, res) => {
             return controller.getAccount(req, res);
         })
         .post('/:id', (req, res) => {
+            console.log("mamka mu");
             return controller.postUpdateProfile(req, res);
         })
         .post('/:id', (req, res) => {

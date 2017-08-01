@@ -1,8 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-
-
 const init = (data) => {
     const app = express();
     require('./config').applyTo(app);
