@@ -32,6 +32,9 @@ const attachTo = (app, data) => {
         //     // }
         //     return controller.getAll(req, res);
         // })
+        .post('/eraseall', (req, res) => {
+            return controller.eraseAll(req, res);
+        })
         .post('/add/:_id', (req, res) => {
             // console.log('post info---')
             // console.log(req.body);
