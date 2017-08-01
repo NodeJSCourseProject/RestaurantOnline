@@ -58,6 +58,7 @@
     transition: 0.3s;
     border: 1px solid #C09A68;
     max-width: 202px;
+    min-height: 380px;
     background-color: #111;
     float: left;
     margin-right: 20px;
