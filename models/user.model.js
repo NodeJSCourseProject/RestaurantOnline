@@ -1,4 +1,8 @@
 class User {
+    constructor(data) {
+        this.data = data;
+    }
+
     static isValid(model) {
         return typeof model !== 'undefined' &&
             typeof model.username === 'string' &&
@@ -35,17 +39,11 @@ class User {
             });
     }
 
-    getUserById(id) {
-        return new Promise((resolve, reject) => {
-            User.findOne({
-                _id: id
-            }, (err, user) => {
-                if (err) {
-                    return reject(err);
-                }
-                return resolve(user || null);
-            });
-        });
+    getUserById(id, req, res) {
+        return Promise.resolve()
+            .then(() => {             
+                return this.data.users.find({ _id: req.user.id });
+            })
     }
 }
 
