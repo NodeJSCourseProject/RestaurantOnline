@@ -1,9 +1,9 @@
 'use strict';
 const { Router } = require('express');  
     
-const attachTo = (app) => {
+const attachTo = (app, data) => {
     const router = new Router();
-    const controller = require('./controller').init();
+    const controller = require('./controller').init(data);
     
     router
         .get('/home', (req, res) => {

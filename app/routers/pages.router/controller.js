@@ -1,6 +1,10 @@
 'use strict';
 
 class PageController {
+    constructor(data) {
+        this.data = data;
+    }
+    
     getHome (req, res) {
         return Promise.resolve()
             .then(() => {
@@ -9,9 +13,9 @@ class PageController {
     }
 
     getMenu (req, res) {
-        return Promise.resolve()
-            .then(() => {
-                res.render('menu');
+        return this.data.meals.filterBy({})
+            .then((m) => {
+                res.render('menu', { meals: m });
             });
     }
 
@@ -37,8 +41,8 @@ class PageController {
     }
 }
 
-const init = () => {
-    return new PageController();
+const init = (data) => {
+    return new PageController(data);
 };
 
 module.exports = { init };
