@@ -1,14 +1,17 @@
 extends ../_shared
 block content
+    div.naming
+        p MDB
     h2 Please confirm your order:
-    each item in context
-        ul.list.list-group
-            li.list-group-item
-                span
-                    =item.meal.name
-                span - 
-                span
-                    =item.quantity
+    if context
+        each item in context
+            ul.list.list-group
+                li.list-group-item
+                    span
+                        =item.meal.name
+                    span - 
+                    span
+                        =item.quantity
     form(action="/orders/add" method="POST" )
         label(for='deliveryAddress') Delivery address
         input.form-control(name="deliveryAddress" required type="text" placeholder="Enter delivery address" minlength = "1")
