@@ -5,7 +5,7 @@ const init = (data) => {
     const app = express();
     require('./config').applyTo(app, data);
     require('./config/auth.config')
-        .applyTo(app);
+        .applyTo(app, data);
     require('./auth').applyTo(app, data);
 
     app.set('view engine', 'pug');
