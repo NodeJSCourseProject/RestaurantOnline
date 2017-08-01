@@ -25,7 +25,7 @@ const attachTo = (app, data) => {
             return controller.signUp(req, res);
         })
         .post('/sign-in', passport.authenticate('local', {
-            successRedirect: '/categorys',
+            successRedirect: '/home',
             failureRedirect: '/auth/sign-up',
             failureFlash: true,
         }));
