@@ -26,7 +26,7 @@ const attachTo = (app, data) => {
         })
         .post('/sign-in',
         passport.authenticate('local', {
-            successRedirect: '/categorys',
+            successRedirect: '/home',
             failureRedirect: '/auth/sign-up',
             failureFlash: true
         }))
