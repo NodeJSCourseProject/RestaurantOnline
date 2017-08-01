@@ -24,14 +24,9 @@ const attachTo = (app, data) => {
 
             return controller.signUp(req, res);
         })
-<<<<<<< HEAD
-        .post('/sign-in', passport.authenticate('local', {
-            successRedirect: '/home',
-=======
         .post('/sign-in',
         passport.authenticate('local', {
-            successRedirect: '/categorys',
->>>>>>> 7fc5c8be3ebb9fb88ebb9d20c810efb74a09ca5f
+            successRedirect: '/home',
             failureRedirect: '/auth/sign-up',
             failureFlash: true
         }))
