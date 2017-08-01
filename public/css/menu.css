@@ -21,7 +21,7 @@
     margin: 15px 15px 15px 200px;
     margin-left: 22%;
     width: 77%;
-    min-height: 137px;
+    min-height: 430px;
 }
 
 #search input[type="text"] {
@@ -58,6 +58,8 @@
     border: 1px solid #C09A68;
     max-width: 202px;
     background-color: #111;
+    float: left;
+    margin-right: 20px;
 }
 
 .meal:hover {
