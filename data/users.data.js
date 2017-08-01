@@ -8,8 +8,7 @@ class UsersData extends BaseData {
 
     findByUsername(username) {
         //console.log("**", this);
-        return this
-            .filterBy({ username: new RegExp(username, 'i') })
+        return this.filterBy({ username: new RegExp(username, 'i') })
             .then(([user]) => user);
     }
 
@@ -34,7 +33,7 @@ class UsersData extends BaseData {
                 if (!user) {
                     throw new Error('Invalid user');
                 }
- 
+
                 user.shoppingCart.push({
                     meal: meal,
                     quantity: quantity,

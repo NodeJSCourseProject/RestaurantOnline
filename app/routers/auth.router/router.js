@@ -24,11 +24,12 @@ const attachTo = (app, data) => {
 
             return controller.signUp(req, res);
         })
-        .post('/sign-in', passport.authenticate('local', {
+        .post('/sign-in',
+        passport.authenticate('local', {
             successRedirect: '/categorys',
             failureRedirect: '/auth/sign-up',
-            failureFlash: true,
-        }));
+            failureFlash: true
+        }))
 
     app.use('/auth', router);
 };

@@ -7,20 +7,16 @@ const attachTo = (app, data) => {
     const controller = require('./controller').init(data);
 
     router
-        .post('/',(req,res)=>{
-            return controller.postUpdateProfile(req,res);
-        })
-        .get('/:id', (req, res) => {
+        .get('/', (req, res) => {
             return controller.getAccount(req, res);
         })
-        .post('/:id', (req, res) => {
-            console.log("mamka mu");
+        .post('/profile', (req, res) => {
             return controller.postUpdateProfile(req, res);
         })
-        .post('/:id', (req, res) => {
+        .post('/', (req, res) => {
             return controller.postUpdatePassword(req, res);
         })
-        .post('/:id', (req, res) => {
+        .post('/', (req, res) => {
             return controller.postDeleteAccount(req, res);
         })
         .post('/sign-in', passport.authenticate('local', {
