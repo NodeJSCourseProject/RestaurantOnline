@@ -6,7 +6,8 @@ head
     link(rel="stylesheet", href="/libs/bootstrap/dist/css/bootstrap.min.css")
     script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js")
     style
-        include ../public/css/landing.css
+        include ../public/css/menu.css
+        include ../public/css/landing.css        
     title 
         | MDB | Home page
 body
@@ -15,7 +16,7 @@ body
             li.menu
                 a(href="/home") Home
             li.menu
-                a(href="/categorys") Menu
+                a(href="/menu") Menu
             li.menu
                 a(href="/about") About
             if user
@@ -30,7 +31,7 @@ body
                     a(href="#login") Log in
                 li.auth(id="registerNav")
                     a(href="#register") Register
-    header
+    header    
     section(id="register")
         div(class="register-form login-page" id="register")
             div.form
