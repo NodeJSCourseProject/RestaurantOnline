@@ -1,3 +1,4 @@
+- var admin = user.admin
 <!DOCTYPE html>
 html(lang="en")
 head
@@ -5,6 +6,7 @@ head
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" )    
     link(rel="stylesheet", href="/libs/bootstrap/dist/css/bootstrap.min.css")
     script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js")
+    script(src="/static/js/categories.js")
     style
         include ../public/css/menu.css
         include ../public/css/landing.css        
@@ -19,10 +21,15 @@ body
                 a(href="/menu") Menu
             li.menu
                 a(href="/about") About
+            if admin
+                li.menu
+                    a(href="/meals/form") Meals Input
             if user
                 li.menu
                     a(href="/profile") Profile
-            block shoppingcartbutton
+            if user
+                li.menu
+                    a(href="/shoppingcart/form") Shopping Cart
             if user
                 li.auth(id="logoutNav")
                     a(href="/auth/sign-out") Log out

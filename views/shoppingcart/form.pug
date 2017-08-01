@@ -9,9 +9,10 @@ block content
                 span - 
                 span
                     =item.quantity
-    form(action="/orders/form" method="POST" )
+    form(action="/orders/add" method="POST" )
         label(for='deliveryAddress') Delivery address
         input.form-control(name="deliveryAddress" required type="text" placeholder="Enter delivery address" minlength = "1")
         br
-        button.btn.btn-success
-            | Save
+        button.btn.btn-success Save
+        form(action="/shoppingcart/eraseall" method="POST" )   
+            button.btn.btn-success Erase

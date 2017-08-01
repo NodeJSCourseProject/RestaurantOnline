@@ -32,10 +32,7 @@ const attachTo = (app, data) => {
         //     // }
         //     return controller.getAll(req, res);
         // })
-        .post('/eraseall', (req, res) => {
-            return controller.eraseAll(req, res);
-        })
-        .post('/add/:_id', (req, res) => {
+        .post('/add', (req, res) => {
             // console.log('post info---')
             // console.log(req.body);
             if (!req.user) {
@@ -45,10 +42,10 @@ const attachTo = (app, data) => {
                     });
             }
 
-            return controller.addMeals(req, res);
+            return controller.create(req, res);
         });
 
-    app.use('/shoppingcart', router);
+    app.use('/orders', router);
 };
 
 module.exports = { attachTo };
