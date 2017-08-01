@@ -13,12 +13,12 @@ const attachTo = (app, data) => {
         .post('/', (req, res) => {
             return controller.postUpdateProfile(req, res);
         })
-        // .post('/', (req, res) => {
-        //     return controller.postUpdatePassword(req, res);
-        // })
-        // .post('/', (req, res) => {
-        //     return controller.postDeleteAccount(req, res);
-        // })
+        .post('/password', (req, res) => {
+            return controller.postUpdatePassword(req, res);
+        })
+        .post('/deleted', (req, res) => {
+            return controller.postDeleteAccount(req, res);
+        })
         .post('/sign-in', passport.authenticate('local', {
             successRedirect: '/meals/form',
             failureRedirect: '/auth/sign-up',

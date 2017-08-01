@@ -28,8 +28,7 @@ class UsersController {
         //     req.flash('errors', errors);
         //     return res.redirect('/profile');
         // }
-        //User.findById(req.user.id, (err, user) => {
-        //db.getCollection('users').find({})
+
         const id = req.user._id;
         return User.getUserById(id, req, res)
             .then((result) => {
@@ -51,61 +50,45 @@ class UsersController {
                 req.flash('error', err.message);
                 res.redirect(req.get('referer'));
             })
-
-
-
-
-        // User.getUserById(req.user.id, (err, user) => {
-        //     if (err) {
-        //         return next(err);
-        //     }
-        //     user.email = req.body.email || '';
-        //     user.profile.name = req.body.name || '';
-        //     user.save((err) => {
-        //         if (err) {
-        //             if (err.code === 11000) {
-        //                 req.flash('errors', { msg: 'This email is already used' });
-        //                 return res.redirect('/profile');
-        //             }
-        //             return next(err);
-        //         }
-        //         req.flash('success', { msg: 'Your profile information is changed' });
-        //         res.redirect('/profile');
-        //     });
-        // });
     }
     postUpdatePassword(req, res, next) {
-        // req.assert('password', 'Invalid password').len(4);
-        // req.assert('confirmPassword', 'The password does not match').equals(req.body.password);
+        const id = req.user._id;
+        this.data.users.findById(id)
+            .then((user) => {
+                if (!user) {
+                    throw Error('invalid user');
+                }
 
-        // const errors = req.validationErrors();
-
-        // if (errors) {
-        //     req.flash('errors', errors);
-        //     return res.redirect('/profile');
-        // }
-
-        User.findById(req.user.id, (err, user) => {
-            if (err) {
-                return next(err);
-            }
-            user.password = req.body.password;
-            user.save((err) => {
-                if (err) { return next(err); }
+                user.password = req.body.password;
+                return this.data.users.updateById(user);
+            })
+            .then((result) => {
                 req.flash('success', { msg: 'Your password is changed' });
                 res.redirect('/profile');
-            });
-        });
+            })
+            .catch((err) => {
+                req.flash('error', err.message);
+                res.redirect(req.get('referer'));
+            })
     }
     postDeleteAccount(req, res, next) {
-        User.remove({ _id: req.user.id }, (err) => {
-            if (err) {
-                return next(err);
-            }
-            req.logout();
-            req.flash('info', { msg: 'Your account is deleted' });
-            res.redirect('/');
-        });
+        const id = req.user._id;
+        this.data.users.findById(id)
+            .then((user) => {
+                if (!user) {
+                    throw Error('invalid user');
+                }
+            })
+            .then((result) => {
+                req.logout();
+                req.flash('info', { msg: 'Your account is deleted' });
+                res.redirect('/');
+            })
+            .catch((err) => {
+                req.flash('error', err.message);
+                res.redirect(req.get('referer'));
+            })
+        };
     }
 }
 

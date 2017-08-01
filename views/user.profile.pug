@@ -24,7 +24,7 @@ block content
     .page-header
       h3 Change your password
 
-    form.form-horizontal(action="/password", method="POST")
+    form.form-horizontal(action="/profile/password", method="POST")
         input(type="hidden", name="_csrf", value=_csrf)
         .form-group
           label.col-sm-3.control-label(for="password") New password
@@ -43,7 +43,7 @@ block content
     .page-header
       h3 Delete account
 
-    form.form-horizontal(action="/delete", method="POST")
+    form.form-horizontal(action="/profile/delete", method="POST")
       .form-group
         p.col-sm-offset-3.col-sm-4 Your account and personal information will be deleted
         input(type="hidden", name="_csrf", value=_csrf)
