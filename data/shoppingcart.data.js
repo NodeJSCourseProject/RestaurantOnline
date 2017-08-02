@@ -6,7 +6,6 @@ class ShoppingCartData extends BaseData {
         super(db, ShoppingCart, ShoppingCart);
     }
     _isModelValid(model) {
-        // custom validation 
         return super._isModelValid(model);
     }
 }

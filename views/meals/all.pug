@@ -1,7 +1,12 @@
 extends ../home
 block content
-    if context.length        
-        each meal in context
+    if context.meals.length 
+        h3 Soups  
+        div.btn-group
+            each prop in context.searchProps
+                a.btn-success(href='/meals/:'+context.categoryId+'?orderby='+prop) 
+                    =prop
+        each meal in context.meals
             div.row
                 div.col-sm-4.col-md-3
                     div.thumbnail

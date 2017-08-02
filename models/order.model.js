@@ -1,10 +1,6 @@
 class Order {
     static isValid(model) {
-        // console.log('+++M');
-        // console.log(model);
-        return typeof model !== 'undefined'; // &&
-            // typeof model.name === 'string' &&
-            // model.name.length > 1;   //TODO the rest
+        return typeof model !== 'undefined'; 
     }
 
     get id() {

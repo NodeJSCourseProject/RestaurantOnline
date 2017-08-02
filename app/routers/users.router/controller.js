@@ -18,16 +18,6 @@ class UsersController {
     }
     postUpdateProfile(req, res, next) {
         User = new User(this.data);
-        // req.assert('email', 'Enter a valid email, please').isEmail();
-        // req.sanitize('email').normalizeEmail({ remove_dots: false });
-        // console.log("here!!!!!!");
-
-        // const errors = req.validationErrors();
-
-        // if (errors) {
-        //     req.flash('errors', errors);
-        //     return res.redirect('/profile');
-        // }
 
         const id = req.user._id;
         return User.getUserById(id, req, res)

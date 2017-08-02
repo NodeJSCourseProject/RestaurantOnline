@@ -16,25 +16,7 @@ const attachTo = (app, data) => {
 
             return controller.getForm(req, res);
         })
-        // .get('/:_id', (req, res) => {
-        //     console.log('req.params:');
-        //     console.log(req.params);
-        //     // if (!req.user) {
-        //     //     return Promise.resolve()
-        //     //         .then(() => {
-        //     //             req.flash(
-        //     //                 'err',
-        //     //                 { message: 'You need authentication' }
-        //     //             );
-
-        //     //             res.redirect('/auth/sign-in');
-        //     //         });
-        //     // }
-        //     return controller.getAll(req, res);
-        // })
         .post('/add', (req, res) => {
-            // console.log('post info---')
-            // console.log(req.body);
             if (!req.user) {
                 return Promise.resolve()
                     .then(() => {

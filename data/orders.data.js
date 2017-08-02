@@ -6,7 +6,6 @@ class OrdersData extends BaseData {
         super(db, Order, Order);
     }
     _isModelValid(model) {
-        // custom validation 
         return super._isModelValid(model);
     }
 }

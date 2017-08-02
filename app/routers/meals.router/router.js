@@ -6,7 +6,6 @@ const attachTo = (app, data) => {
 
     router
         .get('/form', (req, res) => {
-            //console.log(req.user);
             if (!req.user) {
                 return Promise.resolve()
                     .then(() => {
@@ -19,22 +18,9 @@ const attachTo = (app, data) => {
         .get('/:_id', (req, res) => {
             console.log('req.params:');
             console.log(req.params);
-            // if (!req.user) {
-            //     return Promise.resolve()
-            //         .then(() => {
-            //             req.flash(
-            //                 'err',
-            //                 { message: 'You need authentication' }
-            //             );
-
-            //             res.redirect('/auth/sign-in');
-            //         });
-            // }
             return controller.getAll(req, res);
         })
         .post('/form', (req, res) => {
-            // console.log('post info---')
-            // console.log(req.body);
             if (!req.user) {
                 return Promise.resolve()
                     .then(() => {

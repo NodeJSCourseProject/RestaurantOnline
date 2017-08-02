@@ -19,8 +19,6 @@ const attachTo = (app, data) => {
             return controller.signOut(req, res);
         })
         .post('/sign-up', (req, res) => {
-            // console.log('*/*');
-            // console.log(req);
 
             return controller.signUp(req, res);
         })
@@ -35,7 +33,3 @@ const attachTo = (app, data) => {
 };
 
 module.exports = { attachTo };
-
-// Questions
-// how to choose category
-// where and how to update the category

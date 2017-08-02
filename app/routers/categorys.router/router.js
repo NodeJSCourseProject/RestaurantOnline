@@ -8,29 +8,6 @@ const attachTo = (app, data) => {
         .get('/', (req, res) => {
             return controller.getAll(req, res);
         })
-        // .get('/form', (req, res) => {
-        //     console.log(req.user);
-        //     if (!req.user) {
-        //         return Promise.resolve()
-        //             .then(() => {
-        //                 res.redirect('/auth/sign-in');
-        //             });
-        //     }
-
-        //     return controller.getForm(req, res);
-        // })
-        // .post('/form', (req, res) => {
-        //     console.log('post info---')
-        //     console.log(req.body);
-        //     if (!req.user) {
-        //         return Promise.resolve()
-        //             .then(() => {
-        //                 res.redirect('/auth/sign-in');
-        //             });
-        //     }
-
-        //     return controller.create(req, res);
-        // });
 
     app.use('/categorys', router);
 };

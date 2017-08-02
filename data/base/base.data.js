@@ -28,12 +28,19 @@ class BaseData {
             });
     }
 
-    // create(model) {
-    //     if (!this._isModelValid(model)) {
-    //         return Promise.reject('Validation failed!');
-    //     }
-    //     return this.collection.insert(model);
-    // }
+    getAllSortedBy(property) {
+        return this.collection.find().sort( { property: 1 })
+            .toArray()
+            .then((models) => {
+                if (this.ModelClass.toViewModel) {
+                    return models.map(
+                        (model) => this.ModelClass.toViewModel(model)
+                    );
+                }
+
+                return models;
+            });
+    }
 
     create(model) {
         if (!this._isModelValid(model)) {
@@ -52,8 +59,6 @@ class BaseData {
     }
 
     findOrCreateBy(props) {
-        // console.log('---');
-        // console.log(props);
         return this.filterBy(props)
             .then(([model]) => {
                 if (!model) {
@@ -63,8 +68,6 @@ class BaseData {
                             return model;
                         });
                 }
-                // console.log(model);
-
                 return model;
             });
     }

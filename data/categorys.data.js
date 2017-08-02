@@ -10,8 +10,6 @@ class CategorysData extends BaseData {
         return this.findById(_id)
             .then((category) => {
                 const meals = category.meals;
-                // console.log('promise meals1: ');
-                // console.log(meals);
 
                 return meals;
             });
@@ -19,7 +17,6 @@ class CategorysData extends BaseData {
     }
 
     _isModelValid(model) {
-        // custom validation 
         return super._isModelValid(model);
     }
 }

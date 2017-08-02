@@ -7,7 +7,6 @@ class MealsData extends BaseData {
     }
 
     _isModelValid(model) {
-        // custom validation 
         return super._isModelValid(model);
     }
 }

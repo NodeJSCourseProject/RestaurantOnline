@@ -18,14 +18,12 @@ class AuthController {
     signUp(req, res) {
         const bodyUser = req.body;
         bodyUser.shoppingCart = [];
-        
+
         this.data.users.findByUsername(bodyUser.username)
             .then((dbUser) => {
                 if (dbUser) {
                     throw new Error('User already exists');
                 }
-                // console.log('*/*');
-                // console.log(this.data.users);
 
                 return this.data.users.create(bodyUser);
             })
@@ -33,8 +31,6 @@ class AuthController {
                 return res.redirect('/home');
             })
             .catch((err) => {
-                console.log('*/*error:');
-                console.log(err);
 
                 req.flash('error', err);
             });

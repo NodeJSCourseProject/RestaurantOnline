@@ -7,9 +7,6 @@ const attachTo = (app, data) => {
     const controller = require('./controller').init(data);
 
     router
-        // .get('/', (req, res) => {
-        //     return controller.getAccount(req, res);
-        // })
         .post('/', (req, res) => {
             return controller.postUpdateProfile(req, res);
         })
